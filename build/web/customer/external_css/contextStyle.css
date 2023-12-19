@@ -1,0 +1,212 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 6, 2023, 5:00:06 PM
+    Author     : Pubudu Kasun
+*/
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-bg-primary: #d0d6df;
+    --color-bg-primary-offset: #f1f3f7;
+    --color-bg-secondary: #fff;
+    --color-text-primary: #3a3c42;
+    --color-text-primary-offset: #898c94;
+    --color-orange: #dc9960;
+    --color-green: #1eb8b1;
+    --color-purple: #657cc4;
+    --color-black: var(--color-text-primary);
+    --color-red: #d92027;
+}
+
+.menu1 {
+    display: flex;
+    flex-direction: column;
+    object-fit: fill;
+    object-position: center;
+    background-color: var(--color-bg-secondary);
+
+
+}
+.menu-list1 {
+    margin: 0;
+    display: block;
+    width: 100%;
+    padding: 8px;
+}
+.menu-list1 + .menu-list1 {
+    border-top: 1px solid #ddd;
+}
+.menu-sub-list {
+    display: none;
+    padding: 8px;
+    background-color: var(--color-bg-secondary);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(64, 64, 64, 0.15);
+    position: absolute;
+    left: 100%;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    flex-direction: column;
+}
+.menu-sub-list:hover {
+    display: flex;
+}
+.menu-item1 {
+    position: relative;
+    list-style: none;
+}
+.menu-button1 {
+    font-size: 15px;
+    border: 0;
+    padding: 8px 8px;
+    padding-right: 36px;
+    width: 100%;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: var(--color-bg-secondary);
+}
+
+
+.menu-button1:hover {
+    background-color: var(--color-bg-primary-offset);
+}
+.menu-button1:hover + .menu-sub-list {
+    display: flex;
+}
+.menu-button1:hover svg {
+    stroke: var(--color-text-primary);
+}
+.menu-button1 svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    stroke: var(--color-text-primary-offset);
+}
+.menu-button1 svg:nth-of-type(2) {
+    margin-right: 0;
+    position: absolute;
+    right: 8px;
+}
+.menu-button1--delete:hover {
+    color: var(--color-red);
+}
+.menu-button1--delete:hover svg:first-of-type {
+    stroke: var(--color-red);
+}
+.menu-button1--orange svg:first-of-type {
+    stroke: var(--color-orange);
+}
+.menu-button1--green svg:first-of-type {
+    stroke: var(--color-green);
+}
+.menu-button1--purple svg:first-of-type {
+    stroke: var(--color-purple);
+}
+.menu-button1--black svg:first-of-type {
+    stroke: var(--color-black);
+}
+.menu-button1--checked svg:nth-of-type(2) {
+    stroke: var(--color-purple);
+}
+.container1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width:540px){
+    .menu-sub-list {
+        display: none;
+        padding: 8px;
+        background-color : var(--color-bg-secondary);
+        position: relative;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        width: 100%;
+        top: 0;
+        flex-direction: column;
+    }
+    .menu-sub-list:hover {
+        display: flex;
+    }
+    
+    .menu-button1 {
+    font-size: 12px;
+    border: 0;
+    padding: 8px 8px;
+    padding-right: 36px;
+    width: 100%;
+    border-radius: 8px;
+    text-align: left;
+    display: block;
+    align-items: center;
+    position: relative;
+    background-color: var(--color-bg-secondary);
+}
+
+.menu-button1:hover {
+    background-color: var(--color-bg-primary-offset);
+}
+.menu-button1:hover + .menu-sub-list {
+    display: none;
+}
+.menu-button1:hover svg {
+    stroke: var(--color-text-primary);
+}
+.menu-button1 svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    stroke: var(--color-text-primary-offset);
+}
+.menu-button1 svg:nth-of-type(2) {
+    margin-right: 0;
+    position: absolute;
+    right: 8px;
+}
+.menu-button1--delete:hover {
+    color: var(--color-red);
+}
+.menu-button1--delete:hover svg:first-of-type {
+    stroke: var(--color-red);
+}
+.menu-button1--orange svg:first-of-type {
+    stroke: var(--color-orange);
+}
+.menu-button1--green svg:first-of-type {
+    stroke: var(--color-green);
+}
+.menu-button1--purple svg:first-of-type {
+    stroke: var(--color-purple);
+}
+.menu-button1--black svg:first-of-type {
+    stroke: var(--color-black);
+}
+.menu-button1--checked svg:nth-of-type(2) {
+    stroke: var(--color-purple);
+}
+    
+
+    
+}

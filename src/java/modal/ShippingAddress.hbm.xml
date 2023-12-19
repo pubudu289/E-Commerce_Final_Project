@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2023 2:24:46 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modal.ShippingAddress" table="shipping_address" catalog="ecom_final_db" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="userLogin" class="modal.UserLogin" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="mainCity" type="string">
+            <column name="main_city" length="20" not-null="true" />
+        </property>
+        <property name="homeCity" type="string">
+            <column name="home_city" length="20" not-null="true" />
+        </property>
+        <property name="addressLine1" type="string">
+            <column name="address_line1" length="45" not-null="true" />
+        </property>
+        <property name="addressLine2" type="string">
+            <column name="address_line2" length="45" not-null="true" />
+        </property>
+        <property name="shippingAddresscol" type="string">
+            <column name="shipping_addresscol" length="45" not-null="true" />
+        </property>
+        <property name="postalCode" type="string">
+            <column name="postal_code" length="45" not-null="true" />
+        </property>
+        <property name="isactive" type="boolean">
+            <column name="isactive" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

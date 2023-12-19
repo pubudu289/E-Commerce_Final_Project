@@ -1,0 +1,225 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 31, 2023, 2:21:00 PM
+    Author     : Pubudu Kasun
+*/
+
+
+
+#owl-demo .item{
+    background: #3fbf79;
+    padding: 30px 0px;
+    margin: 10px;
+    color: #FFF;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+}
+.categoryname{
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+.cardcontent{
+    box-shadow: black;
+}
+
+/*navigation*/
+.mobcategory{
+    display: block;
+}
+.cardcontent{
+    width: 180px;
+    height: 180px;
+    margin-bottom: 30px;
+    margin-left: -5px;
+}
+
+
+a {
+    font-size:12px;
+    font-weight:700
+}
+.superNav {
+    font-size:13px;
+}
+.form-control {
+    outline:none !important;
+    box-shadow: none !important;
+}
+
+.list-group .list-height{
+    max-height: 500px;
+}
+
+.banner-img3{
+    margin: 0;
+    padding: 0;
+    height: 300px;
+    width: 300px;
+    margin-left: -20px;
+    margin-top: 10px;
+    position: relative;
+
+}
+.pname{
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    position: absolute;
+    margin-left: 0px;
+    margin-top: -170px;
+
+}
+
+.description3{
+    color: white;
+    font-size: 15px;
+    font-weight:normal;
+    position: absolute;
+    margin-left: 0px;
+    margin-top: -100px;
+    width: 30em;
+}
+.mname{
+    color: white;
+    font-family: sans-serif;
+    font-weight:bold;
+    font-size: 20px;
+    position: relative;
+    margin-left: 0px;
+    margin-top: 200px;
+}
+
+.shopnow{
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 200px;
+    text-align: center;
+}
+
+.carouselimg{
+
+}
+.carouselbg1{
+    background-color: #3fbf79;
+}
+.carouselbg2{
+    background-color: #ffc107;
+}
+.carouselbg3{
+    background-color: #0dcaf0;
+}
+.carouselheader{
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 30px;
+    line-height: 1;
+    margin-right:700px;
+    margin-top: -250px;
+    color: #000;
+}
+.carouselpara{
+    color: #000;
+    font-size: 15px;
+    margin-right:700px;
+    margin-top: 10px;
+}
+.carouselbtn{
+    margin-right:700px;
+    margin-top: -5px;
+    width: auto;
+}
+.itemcard{
+    line-height: 1;
+}
+.itemcarditmname{
+    width: 10ch;
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+}
+.cardsold{
+    font-size: 10px;
+}
+
+@media screen and (max-width:540px){
+    .centerOnMobile {
+        text-align:center
+    }
+    .banner-img3{
+        margin: 0;
+        padding: 0;
+        height: 150px;
+        width: 150px;
+        margin-left: -20px;
+        margin-top: 10px;
+        position: relative;
+
+    }
+    .banner-text3 .pname{
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+        position: absolute;
+        margin-left: 100px;
+        margin-top: -140px;
+
+    }
+    .description3{
+        color: white;
+        font-size: 11px;
+        font-weight:normal;
+        position: absolute;
+        margin-left: 135px;
+        margin-top: -110px;
+        width: 15em;
+
+    }
+    .mname{
+        color: white;
+        font-family: sans-serif;
+        font-weight:bold;
+        font-size: 20px;
+        position: relative;
+        margin-left: 2px;
+        margin-top: 0px;
+    }
+
+    .shopnow{
+        width: 100px;
+        height: 35px;
+        position: absolute;
+        margin-top: -50px;
+        font-size: 10px;
+        margin-left: 180px;
+        text-align: center;
+    }
+
+    .menu123{
+        display: none;
+    }
+    .mobcategory{
+        display: block;
+    }
+    .cardcontent{
+        width: 50px;
+        height: 50px;
+        margin-bottom: 30px;
+    }
+    .abc{
+        flex: auto;
+        flex-direction: row;
+    }
+
+    .categoryname{
+        color: black;
+        font-size: 13px;
+        font-weight: bold;
+    }
+}

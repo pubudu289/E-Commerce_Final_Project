@@ -1,0 +1,91 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 1, 2023, 6:42:00 PM
+    Author     : Pubudu Kasun
+*/
+
+
+
+
+
+
+
+.scroll {
+    margin: auto;
+    width: 730px;
+    overflow: hidden;
+    object-fit: fill;
+    z-index: -5;
+}
+
+.scroll ul {
+    padding: 0;
+    display: flex;
+    border-radius: 10px;
+    animation: scroll 50s infinite linear;
+}
+
+.scroll ul:hover {
+    animation-play-state: paused;
+}
+
+.scroll li {
+    margin: 0 10px;
+    list-style: none;
+    position: relative;
+    border-radius: 10px;
+
+}
+
+.scroll img {
+    height: 200px;
+    width: 180px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
+    border-radius: 10px;
+    max-width: fit-content;
+
+}
+
+.scroll img:hover {
+    transform: scale(1.04);
+}
+
+@keyframes scroll {
+    from {
+        margin-left: 0%
+    }
+
+    to {
+        margin-left: -100%
+    }
+}
+@media only screen and (max-width: 768px) {
+    .scroll {
+        margin: auto;
+        width: 300px;
+        overflow: hidden;
+        object-fit: fill;
+        z-index: -5;
+    }
+    .scroll img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        cursor: pointer;
+        transition: 0.2s;
+        position: relative;
+        border-radius: 10px;
+        max-width: fit-content;
+    }
+    .w-100 {
+        width: 100% !important;
+        height: 30vh;
+    }
+}

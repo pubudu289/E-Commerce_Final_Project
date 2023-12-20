@@ -13,7 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
       
         <link rel="stylesheet" href="../customer/bootstrap/css/mdb.min.css">
-        <title>Verify Page</title>
+        <title>Customer | Verify Page</title>
     </head>
     <body style="background-color: #f5f5f5;">
         

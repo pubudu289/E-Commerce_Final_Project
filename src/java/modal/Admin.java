@@ -1,5 +1,5 @@
 package modal;
-// Generated Dec 20, 2023 2:24:44 AM by Hibernate Tools 4.3.1
+// Generated Dec 20, 2023 6:59:59 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -27,20 +27,18 @@ public class Admin  implements java.io.Serializable {
      private String nic;
      private String email;
      private String password;
-     private String hash;
      private Boolean active;
      private String img;
 
     public Admin() {
     }
 
-    public Admin(String firstName, String lastName, String nic, String email, String password, String hash, Boolean active, String img) {
+    public Admin(String firstName, String lastName, String nic, String email, String password, Boolean active, String img) {
        this.firstName = firstName;
        this.lastName = lastName;
        this.nic = nic;
        this.email = email;
        this.password = password;
-       this.hash = hash;
        this.active = active;
        this.img = img;
     }
@@ -105,16 +103,6 @@ public class Admin  implements java.io.Serializable {
     
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    
-    @Column(name="Hash")
-    public String getHash() {
-        return this.hash;
-    }
-    
-    public void setHash(String hash) {
-        this.hash = hash;
     }
 
     

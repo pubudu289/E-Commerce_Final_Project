@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Item Details</title>
 
-        <%@include file="../customer/Main/resourse.jsp" %>
+        <%@include file="../customer/Main/cus_resource.jsp" %>
         <link href="../customer/font/font-awesome/css/font_css.css" rel="stylesheet">
         <link rel="stylesheet" href="../customer/external_css/style-card.css">
         <link rel="stylesheet" href="../customer/external_css/style.css">

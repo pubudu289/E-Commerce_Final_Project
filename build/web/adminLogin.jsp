@@ -10,16 +10,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Admin | Log in</title>
+        <title>Admin | Login</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+        <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
         <!-- icheck bootstrap -->
-        <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        <link rel="stylesheet" href="admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
         <!-- Theme style -->
-        <link rel="stylesheet" href="dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="admin/dist/css/adminlte.min.css">
     </head>
     <body class="hold-transition login-page">
         <%
@@ -83,9 +83,7 @@
                     <p class="mb-1">
                         <a href="/Ecom_final_project/admin/adminForgotPassword.jsp">I forgot my password</a>
                     </p>
-                    <p class="mb-0">
-                        <a href="register.html" class="text-center">Register a new membership</a>
-                    </p>
+               
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -94,11 +92,11 @@
         <!-- /.login-box -->
 
         <!-- jQuery -->
-        <script src="plugins/jquery/jquery.min.js"></script>
+        <script src="admin/plugins/jquery/jquery.min.js"></script>
         <!-- Bootstrap 4 -->
-        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- AdminLTE App -->
-        <script src="dist/js/adminlte.min.js"></script>
+        <script src="admin/dist/js/adminlte.min.js"></script>
 
 
 
@@ -122,7 +120,7 @@
                                     window.location = "/Ecom_final_project/admin/index.jsp";
                                 } else {
                                     alert("Try again...")
-                                    window.location = "/Ecom_final_project/admin/adminLogin.jsp";
+                                    window.location = "/Ecom_final_project/adminLogin.jsp";
                                 }
                             },
                             error: function () {

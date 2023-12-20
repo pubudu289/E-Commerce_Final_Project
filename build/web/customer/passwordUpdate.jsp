@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Update Password</title>
+        <title>Customer | Reset Password</title>
 
         <link rel="stylesheet" href="../customer/bootstrap/css/mdb.min.css">
         <script src="../customer/owl-carousel/jquery.min.js"></script>

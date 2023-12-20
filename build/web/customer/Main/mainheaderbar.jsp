@@ -113,7 +113,7 @@
                        aria-expanded="false"
                        >
                         <img
-                            src="../images/userimage/userempty.png"
+                            src="customer/images/userimage/userempty.png"
                             class="rounded-circle"
                             height="25"
                             alt="User"

@@ -9,26 +9,26 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>main Page</title>
+        <title>PRASANNA DP | Home Page</title>
 
 
 
-        <%@include file="../customer/Main/resourse.jsp" %>
-        <link rel="stylesheet" href="../customer/external_css/style-card.css">
-        <link rel="stylesheet" href="../customer/external_css/style.css">
-        <link rel="stylesheet" href="../customer/external_css/contextStyle.css">
+        <%@include file="customer/Main/resourse.jsp" %>
+        <link rel="stylesheet" href="customer/external_css/style-card.css">
+        <link rel="stylesheet" href="customer/external_css/style.css">
+        <link rel="stylesheet" href="customer/external_css/contextStyle.css">
 
     </head>
     <body>
-        <%@include file="../customer/Main/mainheaderbar.jsp" %>
-        <%@include file="../customer/Main/subheader.jsp" %>
+        <%@include file="customer/Main/mainheaderbar.jsp" %>
+        <%@include file="customer/Main/subheader.jsp" %>
 
         <!--Main Banner Start-->
         <div class="container-fluid bg-warning">
             <div class="container">
                 <div class="row ">
                     <div class="col-sm-4 ">
-                        <img alt="banner image" src="../customer/images/Homepage/banner.png" class="banner-img3">
+                        <img alt="banner image" src="customer/images/Homepage/banner.png" class="banner-img3">
                     </div>
                     <div class="col-sm-4">
                         <div class="banner-text3">
@@ -59,7 +59,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider1.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider1.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Bags</p>
                             </div>
@@ -69,7 +69,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider2.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider2.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Shoes</p>
                             </div>
@@ -78,7 +78,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider3.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider3.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Footwear</p>
                             </div>
@@ -87,7 +87,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider4.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider4.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Clothes</p>
                             </div>
@@ -96,7 +96,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider5.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider5.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Shoes</p>
                             </div>
@@ -105,7 +105,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider6.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider6.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Shoes</p>
                             </div>
@@ -114,7 +114,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider7.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider7.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Shoes</p>
                             </div>
@@ -144,7 +144,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider1.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider1.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Shoes</p>
                             </div>
@@ -154,7 +154,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider2.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider2.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Shoes</p>
                             </div>
@@ -163,7 +163,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider3.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider3.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Shoes</p>
                             </div>
@@ -172,7 +172,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider4.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider4.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Shoes</p>
                             </div>
@@ -181,7 +181,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider5.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider5.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Shoes</p>
                             </div>
@@ -190,7 +190,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider6.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider6.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Shoes</p>
                             </div>
@@ -199,7 +199,7 @@
                         <div class="item">
                             <div class="cardcontent">
                                 <div class="card rounded-circle ">
-                                    <img src="../customer/images/itmslider7.jpeg" alt="category Img" class=" rounded-circle">
+                                    <img src="customer/images/itmslider7.jpeg" alt="category Img" class=" rounded-circle">
                                 </div>
                                 <p class="card-title text-center categoryname">Shoes</p>
                             </div>
@@ -236,10 +236,10 @@
                                                 </div>
                                                 <div class="col-sm-8 "> 
                                                     <div class="row">
-                                                        <div class="col-sm-3"><img src="../customer/images/allcat/allcat1.png" class="carouselimg" alt="..."></div>
-                                                        <div class="col-sm-3"><img src="../customer/images/allcat/allcat3.png" class="carouselimg" alt="..."></div>
+                                                        <div class="col-sm-3"><img src="customer/images/allcat/allcat1.png" class="carouselimg" alt="..."></div>
+                                                        <div class="col-sm-3"><img src="customer/images/allcat/allcat3.png" class="carouselimg" alt="..."></div>
                                                         <div class="col-sm-3"></div>
-                                                        <div class="col-sm-3"><img src="../customer/images/allcat/allcat2.png" class="carouselimg" alt="..."></div>
+                                                        <div class="col-sm-3"><img src="customer/images/allcat/allcat2.png" class="carouselimg" alt="..."></div>
 
                                                     </div>
 
@@ -261,10 +261,10 @@
                                                 </div>
                                                 <div class="col-sm-8"> 
                                                     <div class="row">
-                                                        <div class="col-sm-3"><img src="../customer/images/shoes/shoes1.png" class="carouselimg" height="250px" width="350px" alt="..."></div>
-                                                        <div class="col-sm-3"><img src="../customer/images/shoes/shoes2.png" class="carouselimg" alt="..."></div>
+                                                        <div class="col-sm-3"><img src="customer/images/shoes/shoes1.png" class="carouselimg" height="250px" width="350px" alt="..."></div>
+                                                        <div class="col-sm-3"><img src="customer/images/shoes/shoes2.png" class="carouselimg" alt="..."></div>
                                                         <div class="col-sm-3"></div>
-                                                        <div class="col-sm-3"><img src="../customer/images/shoes/shoes3.jpg" class="carouselimg" height="326px" width="270px" alt="..."></div>
+                                                        <div class="col-sm-3"><img src="customer/images/shoes/shoes3.jpg" class="carouselimg" height="326px" width="270px" alt="..."></div>
                                                     </div>
 
                                                 </div>
@@ -285,10 +285,10 @@
                                                 </div>
                                                 <div class="col-sm-8"> 
                                                     <div class="row">
-                                                        <div class="col-sm-3"><img src="../customer/images/bags/bag1.png" class="carouselimg" alt="..."></div>
-                                                        <div class="col-sm-3"><img src="../customer/images/bags/bag2.png" class="carouselimg" alt="..."></div>
-                                                        <div class="col-sm-3"><img src="../customer/images/bags/bag3.png" class="carouselimg" alt="..."></div>
-                                                        <div class="col-sm-3"><img src="../customer/images/bags/bag4.png" class="carouselimg" alt="..."></div>
+                                                        <div class="col-sm-3"><img src="customer/images/bags/bag1.png" class="carouselimg" alt="..."></div>
+                                                        <div class="col-sm-3"><img src="customer/images/bags/bag2.png" class="carouselimg" alt="..."></div>
+                                                        <div class="col-sm-3"><img src="customer/images/bags/bag3.png" class="carouselimg" alt="..."></div>
+                                                        <div class="col-sm-3"><img src="customer/images/bags/bag4.png" class="carouselimg" alt="..."></div>
                                                     </div>
 
                                                 </div>
@@ -600,7 +600,7 @@
                         <div class="col-sm-4">
                             <div class="overflow-visible">
 
-                                <img src="../customer/images/Homepage/undraw_services_re_hu5n.svg" class="img-fluid" alt="Wild Landscape" />
+                                <img src="#" class="img-fluid" alt="Wild Landscape" />
 
                             </div>
                         </div>
@@ -624,13 +624,13 @@
 
 
 
-        <%@include file="../customer/Main/footer.jsp" %>
+        <%@include file="customer/Main/footer.jsp" %>
 
     </body>
 
     <script src="https://unpkg.com/feather-icons"></script>
-    <script src="../customer/js/owl-carowsel.js"></script>
-    <script src="../customer/js/cardtextControl.js"></script>
+    <script src="customer/js/owl-carowsel.js"></script>
+    <script src="customer/js/cardtextControl.js"></script>
 
 
 

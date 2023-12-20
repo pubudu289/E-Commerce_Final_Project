@@ -9,13 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SignIn</title>
-        <%@include file="../customer/Main/resourse.jsp" %>
+        <title>Customer | SignIn</title>
+        <%@include file="../customer/Main/cus_resource.jsp" %>
     </head>
     <body>
         <%
             if (request.getSession().getAttribute("UserData") != null) {
-                response.sendRedirect("/Ecom_final_project/customer/main.jsp");
+                response.sendRedirect("/Ecom_final_project/main.jsp");
             }
         %>
         <section class="vh-100">
@@ -115,7 +115,7 @@
                     success: function (data) {
                         if (data === "00") {
                             alert("login success")
-                            window.location = "/Ecom_final_project/customer/main.jsp";
+                            window.location = "/Ecom_final_project/main.jsp";
                         } else {
                             alert("Try again...")
                             window.location = "/Ecom_final_project/customer/signin.jsp";

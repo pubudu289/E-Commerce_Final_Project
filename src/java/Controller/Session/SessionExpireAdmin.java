@@ -37,7 +37,7 @@ public class SessionExpireAdmin extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             HttpSession session = request.getSession();
             session.invalidate();
-             response.sendRedirect("/Ecom_final_project/admin/adminLogin.jsp");
+             response.sendRedirect("/Ecom_final_project/adminLogin.jsp");
         }
     }
 

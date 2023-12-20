@@ -1,0 +1,38 @@
+SMAP
+index_jsp.java
+JSP
+*S JSP
+*F
++ 0 index.jsp
+admin/index.jsp
++ 1 resoursecss.jsp
+admin/../admin/main/resoursecss.jsp
++ 2 navbar.jsp
+admin/../admin/main/navbar.jsp
++ 3 sidebar.jsp
+admin/../admin/main/sidebar.jsp
++ 4 footer.jsp
+admin/../admin/main/footer.jsp
++ 5 resourcejs.jsp
+admin/../admin/main/resourcejs.jsp
+*L
+5,15:54
+1#1,25:69
+19#0,5:93
+5#2,143:98
+23#0,2:240
+5#3,15:242
+20,4:258
+23,11:262
+34:273,3
+35,3:276
+38,2:280
+39,12:282
+50,2:294
+51,191:296
+24#0,173:486
+5#4,41:659
+196#0,7:699
+1#5,39:706
+202#0,5:744
+*E

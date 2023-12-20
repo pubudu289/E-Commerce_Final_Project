@@ -1,5 +1,5 @@
 package modal;
-// Generated Dec 20, 2023 2:24:44 AM by Hibernate Tools 4.3.1
+// Generated Dec 20, 2023 6:59:59 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

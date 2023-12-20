@@ -18,7 +18,7 @@
         <script src="../customer/owl-carousel/jquery.min.js"></script>
 
 
-        <title>Forgot Password</title>
+        <title>Customer | Verify Page</title>
     </head>
     <body style="background-color: #f5f5f5;">
         <%

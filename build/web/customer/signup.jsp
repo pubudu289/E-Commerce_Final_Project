@@ -9,8 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SignUp</title>
-        <%@include file="../customer/Main/resourse.jsp" %>
+        <title>Customer | SignUp</title>
+        <%@include file="../customer/Main/cus_resource.jsp" %>
 
 
     </head>

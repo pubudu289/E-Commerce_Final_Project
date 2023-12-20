@@ -39,7 +39,7 @@ public class SessionExpire extends HttpServlet {
 //            String val = session.getAttribute("name").toString();
 //            out.write(val);
             session.invalidate();
-            response.sendRedirect("/Ecom_final_project/customer/main.jsp");
+            response.sendRedirect("/Ecom_final_project/main.jsp");
         }
     }
 

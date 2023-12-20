@@ -10,8 +10,8 @@
     <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Registration</title>
-            <%@include file="../customer/Main/resourse.jsp" %>
+            <title>Customer | Registration</title>
+            <%@include file="../customer/Main/cus_resource.jsp" %>
 
         </head>
         <body>

@@ -19,6 +19,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <%@include file="../admin/main/resoursecss.jsp" %>
     </head>
     <body class="hold-transition sidebar-mini">
+        <%
+            if (request.getSession().getAttribute("UserData") == null) {
+                response.sendRedirect("/Ecom_final_project/adminLogin.jsp");
+            }
+        %>
         <div class="wrapper">
             <%@include file="../admin/main/navbar.jsp" %>
             <%@include file="../admin/main/sidebar.jsp" %>

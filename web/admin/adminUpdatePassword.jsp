@@ -126,7 +126,7 @@
                     data: {"pass": pass, "compass": compass, "email": email},
                     success: function (data) {
                         if (data === "00") {
-                            window.location = "/Ecom_final_project/admin/adminLogin.jsp";
+                            window.location = "/Ecom_final_project/adminLogin.jsp";
                         } else {
                             window.location = "/Ecom_final_project/admin/adminUpdatePassword.jsp?email="+email;
                         }

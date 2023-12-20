@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller.LoginController;
+package Controller.AdminController;
 
-import DAO.SendForgotOTP;
+import DAO.AdminDAO.AdminForgotPasswordDAO;
 import DAO.updatePassword.updatePasswrdDAO;
-import DTO.UserForgetPwDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,15 +14,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import modal.UserLogin;
 
 /**
  *
  * @author Pubudu Kasun
  */
-@WebServlet(name = "OTPController", urlPatterns = {"/OTPController"})
-public class OTPController extends HttpServlet {
+@WebServlet(name = "AdminUpdatePasswordController", urlPatterns = {"/AdminUpdatePasswordController"})
+public class AdminUpdatePasswordController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,32 +36,21 @@ public class OTPController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            String pass = request.getParameter("pass");
+            String compass = request.getParameter("compass");
+            String email = request.getParameter("email");
 
-            String email = request.getParameter("txtEmail");
+            if (pass.equals(compass) && !pass.equals("") && !compass.equals("")) {
+                AdminForgotPasswordDAO updateDAO = new AdminForgotPasswordDAO();
+                boolean isUpdated = updateDAO.AdminUpdatePassword(pass, email);
 
-            updatePasswrdDAO pdao = new updatePasswrdDAO();
-            UserLogin searchEmail = pdao.seachByEmail(email);
-
-            if (searchEmail != null) {
-                SendForgotOTP sm = new SendForgotOTP();
-                String code = sm.getRandom();
-
-                UserForgetPwDTO user = new UserForgetPwDTO(email, code);
-
-                boolean test = sm.sendEmail(user);
-
-                if (test) {
-                    HttpSession session = request.getSession();
-                    session.setAttribute("authcode", user);
+                if (isUpdated) {
                     out.print("00");
+
                 } else {
                     out.print("01");
-
                 }
-            } else {
-
             }
-
         }
     }
 

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller.LoginController;
+package Controller.AdminController;
 
+import DAO.AdminDAO.AdminForgotPasswordDAO;
 import DAO.SendForgotOTP;
-import DAO.updatePassword.updatePasswrdDAO;
-import DTO.UserForgetPwDTO;
+import DTO.AdminDTO.AdminForgotPasswordDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,14 +16,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modal.UserLogin;
+import modal.Admin;
 
 /**
  *
  * @author Pubudu Kasun
  */
-@WebServlet(name = "OTPController", urlPatterns = {"/OTPController"})
-public class OTPController extends HttpServlet {
+@WebServlet(name = "AdminForgotPassword", urlPatterns = {"/AdminForgotPassword"})
+public class AdminForgotPassword extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,35 +39,40 @@ public class OTPController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            String email = request.getParameter("txtemail");
 
-            String email = request.getParameter("txtEmail");
+            AdminForgotPasswordDAO searchEmail = new AdminForgotPasswordDAO();
+            Admin adminSearch = searchEmail.searchByEmail(email);
 
-            updatePasswrdDAO pdao = new updatePasswrdDAO();
-            UserLogin searchEmail = pdao.seachByEmail(email);
+            if (adminSearch != null) {
+                SendForgotOTP sendOTP = new SendForgotOTP();
+                String code = sendOTP.getRandom();
 
-            if (searchEmail != null) {
-                SendForgotOTP sm = new SendForgotOTP();
-                String code = sm.getRandom();
-
-                UserForgetPwDTO user = new UserForgetPwDTO(email, code);
-
-                boolean test = sm.sendEmail(user);
+                AdminForgotPasswordDTO fp = new AdminForgotPasswordDTO();
+                fp.setCode(code);
+                fp.setEmail(email);
+                boolean test = sendOTP.sendAdminEmail(fp);
 
                 if (test) {
                     HttpSession session = request.getSession();
-                    session.setAttribute("authcode", user);
+                    session.setAttribute("authcode", fp);
                     out.print("00");
                 } else {
                     out.print("01");
-
                 }
-            } else {
 
             }
-
         }
     }
 
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

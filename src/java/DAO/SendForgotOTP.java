@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import DTO.AdminDTO.AdminForgotPasswordDTO;
 import DTO.UserForgetPwDTO;
 import java.util.Properties;
 import java.util.Random;
@@ -67,4 +68,45 @@ public class SendForgotOTP {
 
         return send;
     }
+    
+    
+     public boolean sendAdminEmail(AdminForgotPasswordDTO afpdto) {
+        boolean send = false;
+
+        String toEmail = afpdto.getEmail();
+        String fromEmail = "pubuducloud00@gmail.com";
+        String password = "gdwbofyivrmvqmjw";
+        try {
+
+            Properties pr = new Properties();
+            pr.put("mail.smtp.auth", "true");
+            pr.put("mail.smtp.starttls.enable", "true");
+            pr.put("mail.smtp.host", "smtp.gmail.com");
+            pr.put("mail.smtp.port", "587");
+            pr.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+            pr.put("mail.smtp.debug", "true");
+
+            Session session = Session.getInstance(pr, new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(fromEmail, password);
+                }
+            });
+
+            Message message = new MimeMessage(session);
+
+            message.setFrom(new InternetAddress(fromEmail));
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
+            message.setSubject("User Forgot Password");
+            message.setText("Please forgot password your account using this code : " + afpdto.getCode());
+            Transport.send(message);
+            send = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return send;
+    }
+    
 }

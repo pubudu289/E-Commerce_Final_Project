@@ -47,8 +47,21 @@ Contributor(s):
     <property name="hibernate.connection.password">12345</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <mapping resource="modal/ShippingAddress.hbm.xml"/>
-    <mapping resource="modal/Admin.hbm.xml"/>
+    <mapping resource="modal/TableFlatRate.hbm.xml"/>
+    <mapping resource="modal/SubCategory.hbm.xml"/>
+    <mapping resource="modal/Brand.hbm.xml"/>
+    <mapping resource="modal/StockVisibility.hbm.xml"/>
+    <mapping resource="modal/Homecity.hbm.xml"/>
+    <mapping resource="modal/ProductImage.hbm.xml"/>
+    <mapping resource="modal/MainCategory.hbm.xml"/>
+    <mapping resource="modal/Product.hbm.xml"/>
     <mapping resource="modal/UserLogin.hbm.xml"/>
+    <mapping resource="modal/Category.hbm.xml"/>
+    <mapping resource="modal/Districts.hbm.xml"/>
+    <mapping resource="modal/Admin.hbm.xml"/>
     <mapping resource="modal/UserRegistration.hbm.xml"/>
+    <mapping resource="modal/Postalcode.hbm.xml"/>
+    <mapping resource="modal/TableShippingStatus.hbm.xml"/>
+    <mapping resource="modal/Province.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

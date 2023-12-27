@@ -34,7 +34,7 @@
                     <h3 class="font-weight-bold"><span class="text-warning">PRASANNA </span>DRESS POINT</h3>
                 </div>
                 <div class="card-body">
-                    <p class="login-box-msg">Sign in</p>
+                    <p class="login-box-msg">Admin Sign in</p>
 
                     <form  method="post">
                         <div class="input-group mb-3">

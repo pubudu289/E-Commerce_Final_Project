@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 26, 2023 2:34:59 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modal.Product" table="product" catalog="ecom_final_db" optimistic-lock="version">
+        <id name="productId" type="string">
+            <column name="product_id" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="admin" class="modal.Admin" fetch="select">
+            <column name="admin_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="brand" class="modal.Brand" fetch="select">
+            <column name="brand_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="category" class="modal.Category" fetch="select">
+            <column name="category_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="mainCategory" class="modal.MainCategory" fetch="select">
+            <column name="maincat_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="subCategory" class="modal.SubCategory" fetch="select">
+            <column name="subcat_id" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="100" not-null="true" />
+        </property>
+        <property name="unit" type="string">
+            <column name="unit" length="45" not-null="true" />
+        </property>
+        <property name="qty" type="int">
+            <column name="qty" not-null="true" />
+        </property>
+        <property name="addtoby" type="timestamp">
+            <column name="addtoby" length="19" not-null="true" />
+        </property>
+        <property name="unitPrice" type="double">
+            <column name="unit_price" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="purchasePrice" type="double">
+            <column name="purchase_price" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="discount" type="int">
+            <column name="discount" not-null="true" />
+        </property>
+        <property name="discountPrice" type="double">
+            <column name="discount_price" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="thumbImg" type="string">
+            <column name="thumb_img" length="500" />
+        </property>
+        <property name="sortId" type="int">
+            <column name="sort_id" not-null="true" />
+        </property>
+        <property name="publishUnpublishId" type="boolean">
+            <column name="publish_unpublish_id" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="500" not-null="true" />
+        </property>
+        <property name="shippingDays" type="string">
+            <column name="shipping_days" length="45" not-null="true" />
+        </property>
+        <property name="lowStockWarning" type="int">
+            <column name="low_stock_warning" not-null="true" />
+        </property>
+        <property name="status" type="boolean">
+            <column name="status" not-null="true" />
+        </property>
+        <set name="productImages" table="product_image" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_id" length="20" not-null="true" />
+            </key>
+            <one-to-many class="modal.ProductImage" />
+        </set>
+        <set name="tableFlatRates" table="table_flat_rate" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_id" length="20" not-null="true" />
+            </key>
+            <one-to-many class="modal.TableFlatRate" />
+        </set>
+        <set name="stockVisibilities" table="stock_visibility" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_id" length="20" not-null="true" />
+            </key>
+            <one-to-many class="modal.StockVisibility" />
+        </set>
+        <set name="tableShippingStatuses" table="table_shipping_status" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_id" length="20" not-null="true" />
+            </key>
+            <one-to-many class="modal.TableShippingStatus" />
+        </set>
+    </class>
+</hibernate-mapping>

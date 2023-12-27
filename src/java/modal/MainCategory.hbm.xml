@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 26, 2023 2:34:59 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modal.MainCategory" table="main_category" catalog="ecom_final_db" optimistic-lock="version">
+        <id name="MId" type="java.lang.Integer">
+            <column name="m_id" />
+            <generator class="identity" />
+        </id>
+        <property name="description" type="string">
+            <column name="description" length="45" not-null="true" />
+        </property>
+        <set name="subCategories" table="sub_category" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="m_id" not-null="true" />
+            </key>
+            <one-to-many class="modal.SubCategory" />
+        </set>
+        <set name="products" table="product" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="maincat_id" not-null="true" />
+            </key>
+            <one-to-many class="modal.Product" />
+        </set>
+    </class>
+</hibernate-mapping>

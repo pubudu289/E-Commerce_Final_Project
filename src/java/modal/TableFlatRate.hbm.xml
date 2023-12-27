@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 26, 2023 2:34:59 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modal.TableFlatRate" table="table_flat_rate" catalog="ecom_final_db" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="product" class="modal.Product" fetch="select">
+            <column name="product_id" length="20" not-null="true" />
+        </many-to-one>
+        <property name="rate" type="double">
+            <column name="rate" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="statId" type="string">
+            <column name="stat_id" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

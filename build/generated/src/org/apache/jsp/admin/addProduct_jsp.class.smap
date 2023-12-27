@@ -1,0 +1,42 @@
+SMAP
+addProduct_jsp.java
+JSP
+*S JSP
+*F
++ 0 addProduct.jsp
+admin/addProduct.jsp
++ 1 navbar.jsp
+admin/../admin/main/navbar.jsp
++ 2 sidebar.jsp
+admin/../admin/main/sidebar.jsp
++ 3 footer.jsp
+admin/../admin/main/footer.jsp
+*L
+5,52:57
+60:113,2
+61,2:115
+5#1,143:117
+62#0,2:259
+5#2,15:261
+20,4:277
+23,11:281
+34:292,3
+35,3:295
+38,2:299
+39,12:301
+51,2:314
+52,191:316
+63#0,33:506
+95,3:539
+97,4:542
+101:546,3
+102,15:549
+117,4:565
+120:569
+121:570,3
+122:573
+123,2:575
+124,348:577
+5#3,41:925
+471#0,50:965
+*E

@@ -9,17 +9,14 @@ import DAO.RegisterUser.RegisterDAO;
 import DAO.RegisterUser.RegisterUserDetailsDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.persistence.RollbackException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modal.UserLogin;
-import modal.UserRegistration;
 
 /**
  *
@@ -52,6 +49,7 @@ public class AddUserDetails extends HttpServlet {
                 String gender = request.getParameter("gender");
                 String mobileNo = request.getParameter("mobileNo");
                 String country = request.getParameter("country");
+                String province = request.getParameter("province");
                 String maincity = request.getParameter("maincity");
                 String homecity = request.getParameter("homecity");
                 String addlineone = request.getParameter("addlineone");
@@ -64,9 +62,9 @@ public class AddUserDetails extends HttpServlet {
 
                 if (loginUser != null) {
                     RegisterUserDetailsDAO reguserdao = new RegisterUserDetailsDAO();
-                    String s1 = reguserdao.saveUserDetails(loginUser, email, fullname, bday, gender, mobileNo,
-                            country, maincity, homecity, addlineone, addlinetwo,
-                            addlinethree, postalcode);
+                    String s1 = reguserdao.saveUserDetails(loginUser, email,
+                            fullname, bday, gender, mobileNo, country, province, maincity,
+                            homecity, addlineone, addlinetwo,addlinethree, postalcode);
 
                     if (s1.equals("success")) {
                         out.print("00");

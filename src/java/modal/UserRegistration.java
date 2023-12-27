@@ -1,5 +1,5 @@
 package modal;
-// Generated Dec 20, 2023 6:59:59 PM by Hibernate Tools 4.3.1
+// Generated Dec 26, 2023 2:34:59 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -33,6 +33,7 @@ public class UserRegistration  implements java.io.Serializable {
      private Date addtoby;
      private String email;
      private String mobileNo;
+     private String province;
      private String mainCity;
      private String homeCity;
      private String addressLine1;
@@ -44,7 +45,7 @@ public class UserRegistration  implements java.io.Serializable {
     public UserRegistration() {
     }
 
-    public UserRegistration(UserLogin userLogin, String fullName, Date dob, String gender, Date addtoby, String email, String mobileNo, String mainCity, String homeCity, String addressLine1, String addressLine2, String addressLine3, String postalCode, boolean isactive) {
+    public UserRegistration(UserLogin userLogin, String fullName, Date dob, String gender, Date addtoby, String email, String mobileNo, String province, String mainCity, String homeCity, String addressLine1, String addressLine2, String addressLine3, String postalCode, boolean isactive) {
        this.userLogin = userLogin;
        this.fullName = fullName;
        this.dob = dob;
@@ -52,6 +53,7 @@ public class UserRegistration  implements java.io.Serializable {
        this.addtoby = addtoby;
        this.email = email;
        this.mobileNo = mobileNo;
+       this.province = province;
        this.mainCity = mainCity;
        this.homeCity = homeCity;
        this.addressLine1 = addressLine1;
@@ -141,6 +143,16 @@ public class UserRegistration  implements java.io.Serializable {
     
     public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
+    }
+
+    
+    @Column(name="province", nullable=false, length=45)
+    public String getProvince() {
+        return this.province;
+    }
+    
+    public void setProvince(String province) {
+        this.province = province;
     }
 
     

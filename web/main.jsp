@@ -352,14 +352,14 @@
 
                                     <div class="col-md-6 col-lg-2 mb-md-0 mb-lg-0 itemcard mb-1">
                                         <div class="card " >
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
+                                            <img src="customer/images/bags/bag1.png"
                                                  class="card-img-top" alt="Laptop" />
                                             <div class="card-body">
                                                 <div class="d-flex justify-content-between">
                                                     <div class="container-fluid">
                                                         <div class="row">
                                                             <div class="d-flex justify-content-between mb-1">
-                                                                <h6 class="mb-0">HP Notebook</h6>
+                                                                <h6 class="mb-0">Lether Bag</h6>
                                                             </div>
                                                             <p class="small mb-1"><a href="#!" id="ok" class="text-muted itemcarditmname fw-normal">Buylor New Mobile Phone Crossbody Bags for Women Fashion Women Shoulder Bag Cell Phone Pouch With Headphone Plug 3 Layer Wallet</a></p>
                                                             <p class="small text-dark mb-0"><b>LKR 800.0</b></p>
@@ -377,18 +377,18 @@
 
                                     <div class="col-md-6 col-lg-2 mb-md-0 mb-lg-0 itemcard mb-1">
                                         <div class="card " >
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
+                                            <img src="customer/images/bags/bag2.png"
                                                  class="card-img-top" alt="Laptop" />
                                             <div class="card-body">
                                                 <div class="d-flex justify-content-between">
                                                     <div class="container-fluid">
                                                         <div class="row">
                                                             <div class="d-flex justify-content-between mb-1">
-                                                                <h6 class="mb-0">HP Notebook</h6>
+                                                                <h6 class="mb-0">Black Lether Bag</h6>
                                                             </div>
                                                             <p class="small mb-1"><a href="#!"  id="ok1"  class="text-muted itemcarditmname fw-normal">Buylor New Mobile Phone Crossbody Bags for Women Fashion Women Shoulder Bag Cell Phone Pouch With Headphone Plug 3 Layer Wallet</a></p>
-                                                            <p class="small text-dark mb-0"><b>LKR 800.0</b></p>
-                                                            <p class="small text-danger mb-1"><s>LKR 850.0</s></p>
+                                                            <p class="small text-dark mb-0"><b>LKR 700.0</b></p>
+                                                            <p class="small text-danger mb-1"><s>LKR 750.0</s></p>
                                                             <p class="small text-muted mb-0"><span class="fw-bold">Available: </span>6</p>
                                                             <p class="small text-muted mb-1 cardsold">100+ sold</p>
                                                             <button type="button" class="btn btn-warning btn-rounded" data-mdb-ripple-init>Buy Now</button>
@@ -402,14 +402,39 @@
 
                                     <div class="col-md-6 col-lg-2 mb-md-0 mb-lg-0 itemcard mb-1">
                                         <div class="card " >
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
+                                            <img src="customer/images/shoes/shoes2.png"
                                                  class="card-img-top" alt="Laptop" />
                                             <div class="card-body">
                                                 <div class="d-flex justify-content-between">
                                                     <div class="container-fluid">
                                                         <div class="row">
                                                             <div class="d-flex justify-content-between mb-1">
-                                                                <h6 class="mb-0">HP Notebook</h6>
+                                                                <h6 class="mb-0">Mens Shoes</h6>
+                                                            </div>
+                                                            <p class="small mb-1"><a href="#!" class="text-muted itemcarditmname fw-normal">Buylor New Mobile Phone Crossbody Bags for Women Fashion Women Shoulder Bag Cell Phone Pouch With Headphone Plug 3 Layer Wallet</a></p>
+                                                            <p class="small text-dark mb-0"><b>LKR 1500.0</b></p>
+                                                            <p class="small text-danger mb-1"><s>LKR 1600.0</s></p>
+                                                            <p class="small text-muted mb-0"><span class="fw-bold">Available: </span>6</p>
+                                                            <p class="small text-muted mb-1 cardsold">100+ sold</p>
+                                                            <button type="button" class="btn btn-warning btn-rounded" data-mdb-ripple-init>Buy Now</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--item end-->
+
+                                    <div class="col-md-6 col-lg-2 mb-md-0 mb-lg-0 itemcard mb-1">
+                                        <div class="card " >
+                                            <img src="customer/images/bags/bag4.png"
+                                                 class="card-img-top" alt="Laptop" />
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="d-flex justify-content-between mb-1">
+                                                                <h6 class="mb-0">Ladies Bag Pack</h6>
                                                             </div>
                                                             <p class="small mb-1"><a href="#!" class="text-muted itemcarditmname fw-normal">Buylor New Mobile Phone Crossbody Bags for Women Fashion Women Shoulder Bag Cell Phone Pouch With Headphone Plug 3 Layer Wallet</a></p>
                                                             <p class="small text-dark mb-0"><b>LKR 800.0</b></p>
@@ -427,14 +452,14 @@
 
                                     <div class="col-md-6 col-lg-2 mb-md-0 mb-lg-0 itemcard mb-1">
                                         <div class="card " >
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
+                                            <img src="customer/images/shoes/shoes1.png"
                                                  class="card-img-top" alt="Laptop" />
                                             <div class="card-body">
                                                 <div class="d-flex justify-content-between">
                                                     <div class="container-fluid">
                                                         <div class="row">
                                                             <div class="d-flex justify-content-between mb-1">
-                                                                <h6 class="mb-0">HP Notebook</h6>
+                                                                <h6 class="mb-0">Mens Black Shoes</h6>
                                                             </div>
                                                             <p class="small mb-1"><a href="#!" class="text-muted itemcarditmname fw-normal">Buylor New Mobile Phone Crossbody Bags for Women Fashion Women Shoulder Bag Cell Phone Pouch With Headphone Plug 3 Layer Wallet</a></p>
                                                             <p class="small text-dark mb-0"><b>LKR 800.0</b></p>
@@ -452,43 +477,18 @@
 
                                     <div class="col-md-6 col-lg-2 mb-md-0 mb-lg-0 itemcard mb-1">
                                         <div class="card " >
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
+                                            <img src="customer/images/bags/bag3.png"
                                                  class="card-img-top" alt="Laptop" />
                                             <div class="card-body">
                                                 <div class="d-flex justify-content-between">
                                                     <div class="container-fluid">
                                                         <div class="row">
                                                             <div class="d-flex justify-content-between mb-1">
-                                                                <h6 class="mb-0">HP Notebook</h6>
+                                                                <h6 class="mb-0">Kids Bag</h6>
                                                             </div>
                                                             <p class="small mb-1"><a href="#!" class="text-muted itemcarditmname fw-normal">Buylor New Mobile Phone Crossbody Bags for Women Fashion Women Shoulder Bag Cell Phone Pouch With Headphone Plug 3 Layer Wallet</a></p>
-                                                            <p class="small text-dark mb-0"><b>LKR 800.0</b></p>
-                                                            <p class="small text-danger mb-1"><s>LKR 850.0</s></p>
-                                                            <p class="small text-muted mb-0"><span class="fw-bold">Available: </span>6</p>
-                                                            <p class="small text-muted mb-1 cardsold">100+ sold</p>
-                                                            <button type="button" class="btn btn-warning btn-rounded" data-mdb-ripple-init>Buy Now</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item end-->
-
-                                    <div class="col-md-6 col-lg-2 mb-md-0 mb-lg-0 itemcard mb-1">
-                                        <div class="card " >
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
-                                                 class="card-img-top" alt="Laptop" />
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between">
-                                                    <div class="container-fluid">
-                                                        <div class="row">
-                                                            <div class="d-flex justify-content-between mb-1">
-                                                                <h6 class="mb-0">HP Notebook</h6>
-                                                            </div>
-                                                            <p class="small mb-1"><a href="#!" class="text-muted itemcarditmname fw-normal">Buylor New Mobile Phone Crossbody Bags for Women Fashion Women Shoulder Bag Cell Phone Pouch With Headphone Plug 3 Layer Wallet</a></p>
-                                                            <p class="small text-dark mb-0"><b>LKR 800.0</b></p>
-                                                            <p class="small text-danger mb-1"><s>LKR 850.0</s></p>
+                                                            <p class="small text-dark mb-0"><b>LKR 2300.0</b></p>
+                                                            <p class="small text-danger mb-1"><s>LKR 2500.0</s></p>
                                                             <p class="small text-muted mb-0"><span class="fw-bold">Available: </span>6</p>
                                                             <p class="small text-muted mb-1 cardsold">100+ sold</p>
                                                             <button type="button" class="btn btn-warning btn-rounded" data-mdb-ripple-init>Buy Now</button>

@@ -28,4 +28,11 @@ public class AdminLoginDAO {
         return adminlogin;
     }
 
+    public Admin searchByID(int adminid) {
+        Session session = Connection.ConnectionBuilder.hibSession();
+        return (Admin) session.createCriteria(Admin.class)
+                .add(Restrictions.eq("id", adminid))
+                .uniqueResult();
+    }
+
 }

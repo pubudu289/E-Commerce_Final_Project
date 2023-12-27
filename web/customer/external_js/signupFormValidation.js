@@ -23,42 +23,42 @@ $("#Register").click(function (evt) {
 
 
 
-    if (first_name.value === '' || first_name.value == null) {
+    if (first_name.value.trim("") === '' || first_name.value.trim("") == null) {
         name_error_first.innerHTML = "*First name is required";
     } else {
-        var fname = first_name.value;
+        var fname = first_name.value.trim("");
         name_error_first.innerHTML = "";
 
     }
 
-    if (last_name.value === '' || last_name.value == null) {
+    if (last_name.value.trim("") === '' || last_name.value.trim("") == null) {
         name_error_last.innerHTML = "*Last name is required";
     } else {
-        var lname = last_name.value;
+        var lname = last_name.value.trim("");
         name_error_last.innerHTML = "";
     }
 
-    if (!txt_email.value.match(check_email)) {
+    if (!txt_email.value.trim("").match(check_email)) {
         name_error_email.innerHTML = "*Valied Email is required";
     } else {
-        var temail = txt_email.value;
+        var temail = txt_email.value.trim("");
         name_error_email.innerHTML = "";
 
     }
 
-    if (pass.value === '' || pass.value == null) {
+    if (pass.value.trim("") === '' || pass.value.trim("") == null) {
         name_error_pass.innerHTML = "*Password is required";
     } else {
         name_error_pass.innerHTML = "";
     }
 
-    if (compass.value === '' || compass.value == null) {
+    if (compass.value.trim("") === '' || compass.value.trim("") == null) {
         name_error_compass.innerHTML = "*Conmfirm Password is required";
     } else {
         name_error_compass.innerHTML = "";
     }
-    if (pass.value === compass.value) {
-        var comp = compass.value;
+    if (pass.value.trim("") === compass.value.trim("")) {
+        var comp = compass.value.trim("");
     }
 
     var check = document.getElementById("truecheckbox");
@@ -122,7 +122,7 @@ const  name_error_first = document.getElementById("name_error_first");
 
 first_name.addEventListener("input", updateFirstname);
 function updateFirstname(e) {
-    if (first_name.value.length === 0) {
+    if (first_name.value.trim("").length === 0) {
         name_error_first.innerHTML = "*First name is required";
         name_error_compass.style.color = "red";
         return;
@@ -135,7 +135,7 @@ const  last_name = document.getElementById("last_name");
 const  name_error_last = document.getElementById("name_error_last");
 last_name.addEventListener("input", updateLastName);
 function updateLastName(e) {
-    if (last_name.value.length === 0) {
+    if (last_name.value.trim("").length === 0) {
         name_error_last.innerHTML = "*Last name is required";
         name_error_compass.style.color = "red";
         return;
@@ -151,7 +151,7 @@ txt_email.addEventListener("input", updateEmail);
 function updateEmail(e) {
     var check_email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if (!txt_email.value.match(check_email)) {
+    if (!txt_email.value.trim("").match(check_email)) {
         name_error_email.innerHTML = "*Valied Email is required";
     } else {
         name_error_email.innerHTML = "";
@@ -164,13 +164,13 @@ const  name_error_compass = document.getElementById("name_error_compass");
 
 compass.addEventListener("input", compairPassword);
 function compairPassword(e) {
-    if (compass.value.length === 0) {
+    if (compass.value.trim("").length === 0) {
         name_error_compass.innerHTML = "*Comfirm Passward Required";
         name_error_compass.style.color = "red";
         return;
     }
 
-    if (pass.value === compass.value) {
+    if (pass.value.trim("") === compass.value.trim("")) {
         name_error_compass.innerHTML = "Password is Matched";
         name_error_compass.style.color = "green";
     } else {
@@ -203,12 +203,12 @@ function updateValue(e) {
     // Check the conditions
     var ctr = 0;
     for (var i = 0; i < matchedCase.length; i++) {
-        if (new RegExp(matchedCase[i]).test(pass.value)) {
+        if (new RegExp(matchedCase[i]).test(pass.value.trim(""))) {
             ctr++;
         }
 
     }
-    if (pass.value.length < 7) {
+    if (pass.value.trim("").length < 7) {
         name_error_pass.innerHTML = "Add minimum 8 Characters";
     } else {
         name_error_pass.innerHTML = "Add minimum 8 Characters";
@@ -216,7 +216,7 @@ function updateValue(e) {
     }
 
     var uppercase = /[$@$!%*#?&]/;
-    var uc = pass.value.match(uppercase);
+    var uc = pass.value.trim("").match(uppercase);
     if (uc) {
         colorSpec = "green";
         spec.style.color = colorSpec;
@@ -227,7 +227,7 @@ function updateValue(e) {
     }
 
     var specialChar = /[A-Z]/;
-    var sc = pass.value.match(specialChar);
+    var sc = pass.value.trim("").match(specialChar);
     if (sc) {
         colorUppr = "green";
         upper.style.color = colorUppr;
@@ -237,7 +237,7 @@ function updateValue(e) {
     }
 
     var numb = /[0-9]/;
-    var nb = pass.value.match(numb);
+    var nb = pass.value.trim("").match(numb);
     if (nb) {
         colorNumb = "green";
         number.style.color = colorNumb;
@@ -247,7 +247,7 @@ function updateValue(e) {
     }
 
     var lawer = /[a-z]/;
-    var lc = pass.value.match(lawer);
+    var lc = pass.value.trim("").match(lawer);
     if (lc) {
         colorLawer = "green";
         lownum.style.color = colorLawer;
@@ -256,8 +256,7 @@ function updateValue(e) {
         lownum.style.color = colorLawer;
     }
 
-    if (pass.value.length >= 8) {
-        console.log(pass.value.length);
+    if (pass.value.trim("").length >= 8) {
         chareight.style.color = "green";
 
 
@@ -268,7 +267,6 @@ function updateValue(e) {
         var colorSpec = "";
         var colorNumb = "";
         var strength = "";
-        console.log(pass.value);
 
         switch (ctr) {
             case 0:

@@ -19,7 +19,7 @@
     <%
         if (request.getSession().getAttribute("UserData") != null) {
             AdminLoginDTO dto = (AdminLoginDTO) request.getSession().getAttribute("UserData");
-           
+
     %>
 
 
@@ -47,7 +47,8 @@
             </div>
         </div>
 
-        <%            }
+        <%
+            }
         %>
         <!-- SidebarSearch Form -->
         <div class="form-inline">

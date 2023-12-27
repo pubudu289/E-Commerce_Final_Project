@@ -4,6 +4,10 @@
     Author     : Pubudu Kasun
 --%>
 
+<%@page import="modal.Province"%>
+<%@page import="DAO.Area.AreaDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="modal.Districts"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +16,12 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>Customer | Registration</title>
             <%@include file="../customer/Main/cus_resource.jsp" %>
+            <!-- Select2 -->
+            <link rel="stylesheet" href="../admin/plugins/select2/css/select2.min.css">
+            <link rel="stylesheet" href="../admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+            <!--multipal selector-->
+            <link rel="stylesheet" href="../admin/plugins/multipal-selector/css/bootstrap-select.min.css">
 
         </head>
         <body>
@@ -103,25 +113,56 @@
 
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <span style="color: red; font-size: 11px; "id="name_error_maincity" class="mt-0"></span>
-                                                        <div class="d-flex flex-row align-items-center mb-4">
-                                                            <div class="form-outline flex-fill mb-0">
-                                                                <input type="text" id="maincity" class="form-control" />
-                                                                <label class="form-label" for="maincity">Main City</label>
-                                                            </div>
+                                                        <span style="color: red; font-size: 11px; "id="name_error_province" class="mt-0"></span>
+                                                        <div class="form-group mb-3" >
+                                                            <label style="font-size: 13px; color: grey;">Province Or State</label>
+                                                            <select class="form-control select2bs4"  style="width: 100%;" onchange="ProvinceOptionClicked()" id="txt_province" >
+                                                                <option selected="selected" place></option>
+                                                                <%
+                                                                    AreaDAO area = new AreaDAO();
+                                                                    List<Province> provinceList = area.searchAllAreas();
+                                                                    for (Province provincelist : provinceList) {
+
+                                                                %>
+
+                                                                <option><%=provincelist.getProvince()%></option>
+                                                                <%
+                                                                    }
+
+                                                                %>
+
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
+
+                                                        <span style="color: red; font-size: 11px; "id="name_error_maincity" class="mt-0"></span>
+                                                        <div class="form-group mb-3" >
+                                                            <label style="font-size: 13px; color: grey;">Main City</label>
+                                                            <select class="form-control select2bs4"  style="width: 100%;" id="txt_maincity" onchange="MaincityOptionClicked()">
+                                                            </select>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                                <div  class="row">
+                                                    <div class="col-sm-6">
                                                         <span style="color: red; font-size: 11px; "id="name_error_homecity" class="mt-0"></span>
-                                                        <div class="d-flex flex-row align-items-center mb-4">
-                                                            <div class="form-outline flex-fill mb-0">
-                                                                <input type="text" id="homecity" class="form-control" />
-                                                                <label class="form-label" for="homecity" >Home City</label>
-                                                            </div>
+                                                        <div class="form-group mb-3" >
+                                                            <label style="font-size: 13px; color: grey;">Home City</label>
+                                                            <select class="form-control select2bs4"  style="width: 100%;" id="homecity">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <span style="color: red; font-size: 11px; "id="name_error_postal" class="mt-0"></span>
+                                                        <div class="form-group mb-3" >
+                                                            <label style="font-size: 13px; color: grey;">Postal Code</label>
+                                                            <select class="form-control select2bs4"  style="width: 100%;" id="txt_postal" >
+
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
-
 
                                                 <span style="color: red; font-size: 11px; "id="name_error_addlineone" class="mt-0"></span>
                                                 <div class="d-flex flex-row align-items-center mb-4">
@@ -146,13 +187,7 @@
                                                     </div>
                                                 </div>
 
-                                                 <span style="color: red; font-size: 11px; "id="name_error_postal" class="mt-0"></span>
-                                                <div class="d-flex flex-row align-items-center mb-4">
-                                                    <div class="form-outline flex-fill mb-0">
-                                                        <input type="text" id="txt_postal" class="form-control" />
-                                                        <label class="form-label" for="txt_postal">Postal Code</label>
-                                                    </div>
-                                                </div>
+
 
                                                 <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                                     <button type="button" id="btnRegister" class="btn btn-primary btn-lg">Submit</button>
@@ -183,9 +218,24 @@
 
 
     </body>
+
     <script type="text/javascript" src="../customer/external_js/CustomerRegistrationValidation.js"></script>
     <script type="text/javascript" src="../customer/bootstrap/js/mdb.min.js" ></script>
     <script type="text/javascript" src="../customer/bootstrap/js/mdb.umd.min.js" ></script>
+
+
+
+
+    <script src="../admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../admin/plugins/select2/js/select2.full.min.js"></script> 
+    <script src="../admin/plugins/multipal-selector/js/bootstrap-select.min.js"></script>
+    <script>
+          //Initialize Select2 Elements
+           $('.select2bs4').select2({
+           theme: 'bootstrap4'
+          });
+    </script>
+
 
 
 </html>

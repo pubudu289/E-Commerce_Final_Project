@@ -54,17 +54,17 @@ public final class adminLogin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!-- Google Font: Source Sans Pro -->\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback\">\n");
       out.write("        <!-- Font Awesome -->\n");
-      out.write("        <link rel=\"stylesheet\" href=\"plugins/fontawesome-free/css/all.min.css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"admin/plugins/fontawesome-free/css/all.min.css\">\n");
       out.write("        <!-- icheck bootstrap -->\n");
-      out.write("        <link rel=\"stylesheet\" href=\"plugins/icheck-bootstrap/icheck-bootstrap.min.css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css\">\n");
       out.write("        <!-- Theme style -->\n");
-      out.write("        <link rel=\"stylesheet\" href=\"dist/css/adminlte.min.css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"admin/dist/css/adminlte.min.css\">\n");
       out.write("    </head>\n");
       out.write("    <body class=\"hold-transition login-page\">\n");
       out.write("        ");
 
             if (request.getSession().getAttribute("UserData") != null) {
-                response.sendRedirect("/Ecom_final_project/admin/adminLogin.jsp");
+                response.sendRedirect("/Ecom_final_project/admin/index.jsp");
             }
         
       out.write("\n");
@@ -75,7 +75,7 @@ public final class adminLogin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <h3 class=\"font-weight-bold\"><span class=\"text-warning\">PRASANNA </span>DRESS POINT</h3>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"card-body\">\n");
-      out.write("                    <p class=\"login-box-msg\">Sign in</p>\n");
+      out.write("                    <p class=\"login-box-msg\">Admin Sign in</p>\n");
       out.write("\n");
       out.write("                    <form  method=\"post\">\n");
       out.write("                        <div class=\"input-group mb-3\">\n");
@@ -133,11 +133,11 @@ public final class adminLogin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!-- /.login-box -->\n");
       out.write("\n");
       out.write("        <!-- jQuery -->\n");
-      out.write("        <script src=\"plugins/jquery/jquery.min.js\"></script>\n");
+      out.write("        <script src=\"admin/plugins/jquery/jquery.min.js\"></script>\n");
       out.write("        <!-- Bootstrap 4 -->\n");
-      out.write("        <script src=\"plugins/bootstrap/js/bootstrap.bundle.min.js\"></script>\n");
+      out.write("        <script src=\"admin/plugins/bootstrap/js/bootstrap.bundle.min.js\"></script>\n");
       out.write("        <!-- AdminLTE App -->\n");
-      out.write("        <script src=\"dist/js/adminlte.min.js\"></script>\n");
+      out.write("        <script src=\"admin/dist/js/adminlte.min.js\"></script>\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -161,7 +161,7 @@ public final class adminLogin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    window.location = \"/Ecom_final_project/admin/index.jsp\";\n");
       out.write("                                } else {\n");
       out.write("                                    alert(\"Try again...\")\n");
-      out.write("                                    window.location = \"/Ecom_final_project/admin/adminLogin.jsp\";\n");
+      out.write("                                    window.location = \"/Ecom_final_project/adminLogin.jsp\";\n");
       out.write("                                }\n");
       out.write("                            },\n");
       out.write("                            error: function () {\n");

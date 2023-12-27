@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pubudu%20Kasun/Documents/NetBeansProjects/Ecom_final_project/src/java/DAO/SendEmailLogin.java</file>
-            <file>file:/C:/Users/Pubudu%20Kasun/Documents/NetBeansProjects/Ecom_final_project/src/java/Controller/LoginController/LoginEmailVerification.java</file>
+            <file>file:/C:/Users/Pubudu%20Kasun/Documents/NetBeansProjects/Ecom_final_project/src/java/DAO/ProductDAO/ProductDAO.java</file>
+            <file>file:/C:/Users/Pubudu%20Kasun/Documents/NetBeansProjects/Ecom_final_project/web/admin/addProduct.jsp</file>
+            <file>file:/C:/Users/Pubudu%20Kasun/Documents/NetBeansProjects/Ecom_final_project/src/java/DAO/ProductDAO/LoadCategoryDAO.java</file>
+            <file>file:/C:/Users/Pubudu%20Kasun/Documents/NetBeansProjects/Ecom_final_project/web/admin/externaljs/product_upload.js</file>
+            <file>file:/C:/Users/Pubudu%20Kasun/Documents/NetBeansProjects/Ecom_final_project/src/java/Controller/productController/ProductUploadController.java</file>
         </group>
     </open-files>
 </project-private>

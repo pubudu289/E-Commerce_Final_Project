@@ -1,12 +1,16 @@
 package modal;
-// Generated Dec 20, 2023 6:59:59 PM by Hibernate Tools 4.3.1
+// Generated Dec 26, 2023 2:34:59 AM by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -29,11 +33,12 @@ public class Admin  implements java.io.Serializable {
      private String password;
      private Boolean active;
      private String img;
+     private Set<Product> products = new HashSet<Product>(0);
 
     public Admin() {
     }
 
-    public Admin(String firstName, String lastName, String nic, String email, String password, Boolean active, String img) {
+    public Admin(String firstName, String lastName, String nic, String email, String password, Boolean active, String img, Set<Product> products) {
        this.firstName = firstName;
        this.lastName = lastName;
        this.nic = nic;
@@ -41,6 +46,7 @@ public class Admin  implements java.io.Serializable {
        this.password = password;
        this.active = active;
        this.img = img;
+       this.products = products;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -123,6 +129,15 @@ public class Admin  implements java.io.Serializable {
     
     public void setImg(String img) {
         this.img = img;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="admin")
+    public Set<Product> getProducts() {
+        return this.products;
+    }
+    
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
 

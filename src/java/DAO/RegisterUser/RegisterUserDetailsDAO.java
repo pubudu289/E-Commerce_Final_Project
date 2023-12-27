@@ -21,7 +21,7 @@ public class RegisterUserDetailsDAO {
 
     public String saveUserDetails(UserLogin loginUser, String email,
             String fullname, Date bday, String gender, String mobileNo,
-            String country, String maincity, String homecity, String addlineone,
+            String country, String province, String maincity, String homecity, String addlineone,
             String addlinetwo, String addlinethree, String postalcode) {
 
         Session session = null;
@@ -38,6 +38,7 @@ public class RegisterUserDetailsDAO {
 
             ur.setEmail(email);
             ur.setMobileNo(mobileNo);
+            ur.setProvince(province);
             ur.setMainCity(maincity);
             ur.setHomeCity(homecity);
             ur.setAddressLine1(addlineone);

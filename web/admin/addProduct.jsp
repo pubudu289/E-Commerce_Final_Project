@@ -4,6 +4,12 @@
     Author     : Pubudu Kasun
 --%>
 
+<%@page import="modal.Brand"%>
+<%@page import="modal.Districts"%>
+<%@page import="DAO.ProductDAO.ProductDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="modal.MainCategory"%>
+<%@page import="DAO.ProductDAO.LoadCategoryDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
@@ -44,9 +50,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- summernote -->
         <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="../admin/externalcss/product_image.css">
     </head>
     <body class="hold-transition sidebar-mini">
+        <%
+            if (request.getSession().getAttribute("UserData") == null) {
+                response.sendRedirect("/Ecom_final_project/adminLogin.jsp");
+
+            }
+        %> 
         <div class="wrapper">
             <%@include file="../admin/main/navbar.jsp" %>
             <%@include file="../admin/main/sidebar.jsp" %>
@@ -71,8 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div><!-- /.container-fluid -->
                 </div>
                 <!-- /.content-header -->
-
-
+                
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8">
@@ -83,145 +95,170 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card-body">
 
                                     <div class="row">
+                                        <%                                            ProductDAO pdao = new ProductDAO();
+                                            String productID = "I0" + (pdao.productSearch().size() + 1);
+                                        %>
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label class="mb-0"  for="exampleInputEmail1">Product ID</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+                                                <input type="text" class="form-control" id="txtproductid" aria-describedby="emailHelp" value="<%=productID%>" disabled>
                                             </div>
                                         </div>
                                         <div class="col-sm-9">
                                             <div class="form-group">
-                                                <label class="mb-0"  for="exampleInputPassword1">Product Name</label>
-                                                <input type="text" class="form-control" id="exampleInputPassword1">
+                                                <label class="mb-0"  for="productName">Product Name</label>
+                                                <input type="text" class="form-control" id="txtProductName" required="product name required">
                                             </div>
                                         </div>
                                     </div>
+
+
                                     <div class="form-group">
                                         <label>Main Category</label>
-                                        <select class="form-control select2bs4" style="width: 100%;">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
-                                        </select>
+                                        <select class="form-control select2bs4" onchange="optionClicked()"  style="width: 100%;" id="options" >
+                                            <%
+                                                LoadCategoryDAO mainList = new LoadCategoryDAO();
+                                                List<MainCategory> searchMainList = mainList.searchMainList();
+                                                for (MainCategory mainCategory : searchMainList) {
+                                            %>
+                                            <option selected="selected"><%=mainCategory.getDescription()%></option>
+                                            <%
+                                                }
+                                            %>
+                                        </select> 
+
                                     </div>
+
                                     <div class="form-group">
                                         <label>Sub Category</label>
-                                        <select class="form-control select2bs4" style="width: 100%;">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
+                                        <select class="form-control select2bs4" style="width: 100%;" id="subcat" onchange="optionClickedSub()">
                                         </select>
                                     </div>
-                                    
-                                      <div class="form-group">
+
+                                    <div class="form-group">
+                                        <label>Category</label>
+                                        <select class="form-control select2bs4" style="width: 100%;" id="category"  >
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label>Brand</label>
-                                        <select class="form-control select2bs4" style="width: 100%;">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
+                                        <select class="form-control select2bs4" style="width: 100%;" id="brand">
+                                            <%
+                                                LoadCategoryDAO dAO = new LoadCategoryDAO();
+                                                List<Brand> brandList = dAO.searhBrandList();
+                                                for (Brand brand : brandList) {
+
+                                            %>
+                                            <option selected="selected"><%=brand.getBrand()%></option>
+                                            <%
+                                                }
+                                            %>
                                         </select>
                                     </div>
-                                    
+
                                     <div class="form-group">
-                                        <label class="mb-0" for="exampleInputPassword1">Unit</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1">
+                                        <label class="mb-0" for="txtunit">Unit (Kg/Cm/Pcs/..)</label>
+                                        <input type="text" class="form-control" id="txtunit">
                                     </div>
                                     <div class="form-group">
-                                        <label class="mb-0 fw-normal"  for="exampleInputPassword1">Quantity</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1">
+                                        <label class="mb-0 fw-normal"  for="txtqty">Quantity</label>
+                                        <input type="text" class="form-control" id="txtqty">
                                     </div>
-
-
                                 </div>
                             </div>  
-
-
 
                             <div class="card">
                                 <div class="card-header">
                                     Product Images
                                 </div>
                                 <div class="card-body">
-
-                                    <div id="actions" class="row">
-
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="mb-1">Gallery Images</label>
-                                                <div class="btn-group w-100">
-                                                    <span class="btn btn-success col fileinput-button">
-                                                        <i class="fas fa-plus"></i>
-                                                        <span>Add files</span>
-                                                    </span>
-                                                    <button type="submit" class="btn btn-primary col start">
-                                                        <i class="fas fa-upload"></i>
-                                                        <span>Upload</span>
-                                                    </button>
-                                                    <button type="reset" class="btn btn-warning col cancel">
-                                                        <i class="fas fa-times-circle"></i>
-                                                        <span>Cancel</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="table table-striped files" id="previews">
-                                        <div id="template" class="row mt-2">
-                                            <div class="col-auto">
-                                                <span class="preview"><img src="data:," alt="" data-dz-thumbnail /></span>
-                                            </div>
-                                            <div class="col d-flex align-items-center">
-                                                <p class="mb-0">
-                                                    <span class="lead" data-dz-name></span>
-                                                    (<span data-dz-size></span>)
-                                                </p>
-                                                <strong class="error text-danger" data-dz-errormessage></strong>
-                                            </div>
-
-                                            <div class="col-auto d-flex align-items-center">
-                                                <div class="btn-group">
-                                                    <button data-dz-remove class="btn btn-danger delete">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mt-3">
-                                        <div class="col-sm-9">
-
-                                            <div class="form-group mb-3">
-                                                <label>Thumbnail Image</label>
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="validatedInputGroupCustomFile" required>
-                                                    <label class="custom-file-label" for="validatedInputGroupCustomFile">Choose Image...</label>
-                                                </div>
-                                            </div>
-
-                                        </div>
+                                    <div class="row">
                                         <div class="col-sm-3">
+                                            <label>Thumbnail Image</label>
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <img alt="Thumbnail" id="uitem-image" src="image/bag2.png" height="150px" width="120px">
+                                                    <input type="file" id="filethumb"  name="file" enctype="multipart/form-data"  accept="image/*" hidden>
+                                                    <div class="img-area" id="image-areathumb" data-img="" >
+                                                        <i class='bx bxs-cloud-upload icon'></i>
+
+                                                    </div>
+                                                    <p class="sizeText">Image size must be less than <span>2MB</span></p>
+                                                    <button class="select-image" id="selct-imagethumb">Select Image</button>
                                                 </div>
-                                            </div>
+                                            </div> 
+
                                         </div>
 
+
                                     </div>
+                                    <label>Gallery Images</label>
+                                    <div class="card">
+                                        <div class="container">
+                                            <div class="row">
+
+                                                <div class="col-sm-3 mt-2">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <input type="file" id="fileone" accept="image/*" hidden>
+                                                            <div class="img-area" id="image-areaone" data-img="" >
+                                                                <i class='bx bxs-cloud-upload icon'></i>
+
+                                                            </div>
+                                                            <p class="sizeText">Image size must be less than <span>2MB</span></p>
+                                                            <button class="select-image" id="selct-imageone">Select Image</button>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+
+                                                <div class="col-sm-3 mt-2">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <input type="file" id="filetwo" accept="image/*" hidden>
+                                                            <div class="img-area" id="image-areatwo" data-img="" >
+                                                                <i class='bx bxs-cloud-upload icon'></i>
+
+                                                            </div>
+                                                            <p class="sizeText">Image size must be less than <span>2MB</span></p>
+                                                            <button class="select-image" id="selct-imagetwo">Select Image</button>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+
+                                                <div class="col-sm-3 mt-2">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <input type="file" id="filethree" accept="image/*" hidden>
+                                                            <div class="img-area" id="image-areathree" data-img="" >
+                                                                <i class='bx bxs-cloud-upload icon'></i>
+
+                                                            </div>
+                                                            <p class="sizeText">Image size must be less than <span>2MB</span></p>
+                                                            <button class="select-image" id="selct-imagethree">Select Image</button>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+
+                                                <div class="col-sm-3 mt-2">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <input type="file" id="filefour" accept="image/*" hidden>
+                                                            <div class="img-area" id="image-areafour" data-img="" >
+                                                                <i class='bx bxs-cloud-upload icon'></i>
+
+                                                            </div>
+                                                            <p class="sizeText">Image size must be less than <span>2MB</span></p>
+                                                            <button class="select-image" id="selct-imagefour">Select Image</button>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
 
                                 </div>
                                 <!-- /.card-body -->
@@ -239,6 +276,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </textarea>
 
                                 </div>
+
                             </div>
 
 
@@ -248,16 +286,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label class="mb-0" for="exampleInputPassword1">Unit Price</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1">
+                                        <label class="mb-0" for="txtunitPrice">Unit Price</label>
+                                        <input type="number" class="form-control" id="txtunitPrice">
                                     </div>
                                     <div class="form-group">
-                                        <label class="mb-0 fw-normal"  for="exampleInputPassword1">Purchase Price</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1">
+                                        <label class="mb-0 fw-normal"  for="txtpurchaseprice">Purchase Price</label>
+                                        <input type="number" class="form-control" id="txtpurchaseprice">
                                     </div>
                                     <div class="form-group">
-                                        <label class="mb-0 fw-normal"  for="exampleInputPassword1">Discount</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1">
+                                        <label class="mb-0 fw-normal"  for="txtdiscount">Discount %</label>
+                                        <input type="number" class="form-control" id="txtdiscount" value="0">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <label class="form-label" style="font-size: 18px; color: green;">The selling price by discount Rs:</label>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <label class="form-label" style="font-size: 18px; color: tomato;" id="discountPrice">0.00</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -284,8 +330,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                                                    <label class="custom-control-label" for="customSwitch1"></label>
+                                                    <input type="checkbox" class="custom-control-input" id="txtfreeshipping" onclick="FreeShip()">
+                                                    <label class="custom-control-label" for="txtfreeshipping"></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -296,30 +342,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <label  for="exampleInputPassword1">Flat Rate</label>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-3 mb-0">
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="customSwitch2">
-                                                    <label class="custom-control-label" for="customSwitch2"></label>
+                                                    <input type="checkbox" class="custom-control-input" id="toggFlatrate" onclick="flatrate()">
+                                                    <label class="custom-control-label" for="toggFlatrate"></label>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-sm-9">
-                                            <div class="form-group">
-                                                <label  for="exampleInputPassword1">District wise Shipping</label>
+                                        </div>
+
+                                    </div>
+                                    <div col-sm-12 mt-0>
+
+                                        <div class="container">
+                                            <div class="row"  id="flatrate"  style="display: none;">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <p  style="font-size: 15px; font: normal;">Flat Rate</p>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <input type="number" class="form-control" value="0" placeholder="Rate (Rs)" id="txtflatrate">
+                                                    </div> 
+                                                </div> 
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="customSwitch3">
-                                                    <label class="custom-control-label" for="customSwitch3"></label>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
 
 
@@ -332,8 +380,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label class="mb-0 fw-normal"  for="exampleInputPassword1">Quantity</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1">
+                                        <label class="mb-0 fw-normal"  for="txtlowstock">Quantity</label>
+                                        <input type="number" class="form-control" id="txtlowstock">
                                     </div>
                                 </div>
                             </div>
@@ -352,8 +400,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="customSwitch5">
-                                                    <label class="custom-control-label" for="customSwitch5"></label>
+                                                    <input type="checkbox" class="custom-control-input" id="showstock" onclick="showstock()">
+                                                    <label class="custom-control-label" for="showstock"></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -367,8 +415,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="customSwitch6">
-                                                    <label class="custom-control-label" for="customSwitch6"></label>
+                                                    <input type="checkbox" class="custom-control-input" id="stockwithtext" onclick="stockwithtext()">
+                                                    <label class="custom-control-label" for="stockwithtext"></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -383,8 +431,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="customSwitch7">
-                                                    <label class="custom-control-label" for="customSwitch7"></label>
+                                                    <input type="checkbox" class="custom-control-input" id="hidestock" onclick="hidestock()">
+                                                    <label class="custom-control-label" for="hidestock"></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -398,8 +446,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label class="mb-0 fw-normal"  for="exampleInputPassword1">Days</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1">
+                                        <label class="mb-0 fw-normal"  for="txtdays">Days</label>
+                                        <input type="text" class="form-control" id="txtdays">
                                     </div>
                                 </div>
                             </div>
@@ -412,7 +460,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="col-sm-7">
                             <div class="row">
                                 <div class="col-sm-4 mt-1">
-                                    <button type="button" class="btn btn-block bg-gradient-info btn-lg">Save & Publish</button>
+                                    <button type="button" class="btn btn-block bg-gradient-info btn-lg" id="btnSaveAndPublish">Save & Publish</button>
                                 </div>
                                 <div class="col-sm-4 mt-1">
                                     <button type="button" class="btn btn-block bg-gradient-primary btn-lg">Save & Unpubish</button>
@@ -426,11 +474,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
 
                 </div>
-
-
-
-
-
 
             </div>
             <!-- /.content-wrapper -->
@@ -483,148 +526,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Summernote -->
         <script src="plugins/summernote/summernote-bs4.min.js"></script>
-        <script>
-            $(function () {
-                // Summernote
-                $('#summernote').summernote()
-
-                // CodeMirror
-                CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-                    mode: "htmlmixed",
-                    theme: "monokai"
-                });
-            })
-        </script>
-        <script>
-            $(function () {
-                //Initialize Select2 Elements
-                $('.select2').select2()
-
-                //Initialize Select2 Elements
-                $('.select2bs4').select2({
-                    theme: 'bootstrap4'
-                })
-
-                //Datemask dd/mm/yyyy
-                $('#datemask').inputmask('dd/mm/yyyy', {'placeholder': 'dd/mm/yyyy'})
-                //Datemask2 mm/dd/yyyy
-                $('#datemask2').inputmask('mm/dd/yyyy', {'placeholder': 'mm/dd/yyyy'})
-                //Money Euro
-                $('[data-mask]').inputmask()
-
-                //Date picker
-                $('#reservationdate').datetimepicker({
-                    format: 'L'
-                });
-
-                //Date and time picker
-                $('#reservationdatetime').datetimepicker({icons: {time: 'far fa-clock'}});
-
-                //Date range picker
-                $('#reservation').daterangepicker()
-                //Date range picker with time picker
-                $('#reservationtime').daterangepicker({
-                    timePicker: true,
-                    timePickerIncrement: 30,
-                    locale: {
-                        format: 'MM/DD/YYYY hh:mm A'
-                    }
-                })
-                //Date range as a button
-                $('#daterange-btn').daterangepicker(
-                        {
-                            ranges: {
-                                'Today': [moment(), moment()],
-                                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                                'This Month': [moment().startOf('month'), moment().endOf('month')],
-                                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                            },
-                            startDate: moment().subtract(29, 'days'),
-                            endDate: moment()
-                        },
-                        function (start, end) {
-                            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-                        }
-                )
-
-                //Timepicker
-                $('#timepicker').datetimepicker({
-                    format: 'LT'
-                })
-
-                //Bootstrap Duallistbox
-                $('.duallistbox').bootstrapDualListbox()
-
-                //Colorpicker
-                $('.my-colorpicker1').colorpicker()
-                //color picker with addon
-                $('.my-colorpicker2').colorpicker()
-
-                $('.my-colorpicker2').on('colorpickerChange', function (event) {
-                    $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-                })
-
-                $("input[data-bootstrap-switch]").each(function () {
-                    $(this).bootstrapSwitch('state', $(this).prop('checked'));
-                })
-
-            })
-            // BS-Stepper Init
-            document.addEventListener('DOMContentLoaded', function () {
-                window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-            })
-//            // DropzoneJS Demo Code Start
-            Dropzone.autoDiscover = false
-
-            // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-            var previewNode = document.querySelector("#template")
-            previewNode.id = "";
-            var previewTemplate = previewNode.parentNode.innerHTML
-            previewNode.parentNode.removeChild(previewNode)
-
-            var myDropzone = new Dropzone(document.body, {// Make the whole body a dropzone
-                url: "/target-url", // Set the url
-                thumbnailWidth: 80,
-                thumbnailHeight: 80,
-                parallelUploads: 20,
-                previewTemplate: previewTemplate,
-                autoQueue: false, // Make sure the files aren't queued until manually added
-                previewsContainer: "#previews", // Define the container to display the previews
-                clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-            })
+        <script src="../admin/externaljs/productImage.js"></script>
 
 
-            // Update the total progress bar
-            myDropzone.on("totaluploadprogress", function (progress) {
-                document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
-            })
-
-            myDropzone.on("sending", function (file) {
-                // Show the total progress bar when upload starts
-                document.querySelector("#total-progress").style.opacity = "1"
-                // And disable the start button
-                file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
-            })
-
-            // Hide the total progress bar when nothing's uploading anymore
-            myDropzone.on("queuecomplete", function (progress) {
-                document.querySelector("#total-progress").style.opacity = "0"
-            })
-
-            // Setup the buttons for all transfers
-            // The "add files" button doesn't need to be setup because the config
-            // `clickable` has already been specified.
-            document.querySelector("#actions .start").onclick = function () {
-                myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
-            }
-            document.querySelector("#actions .cancel").onclick = function () {
-                myDropzone.removeAllFiles(true)
-            }
-            // DropzoneJS Demo Code End
-        </script>
-
+        <script src="../admin/externaljs/product_upload.js"></script>
+        <script src="../admin/externaljs/product_validation.js"></script>
 
     </body>
 </html>

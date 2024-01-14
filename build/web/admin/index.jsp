@@ -4,6 +4,9 @@
     Author     : Pubudu Kasun
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="modal.Product"%>
+<%@page import="DAO.ProductDAO.ProductViewTableDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
@@ -48,7 +51,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div><!-- /.container-fluid -->
                 </div>
                 <!-- /.content-header -->
-
+                <%                   
+                    ProductViewTableDAO dao = new ProductViewTableDAO();
+                    List<Product> itm = dao.searchAllProducts();
+                    
+                %>
 
                 <section class="content">
                     <div class="container-fluid">
@@ -58,14 +65,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <!-- small box -->
                                 <div class="small-box bg-info">
                                     <div class="inner">
-                                        <h3>150</h3>
+                                        <h3><%=itm.size()%></h3>
 
-                                        <p>New Orders</p>
+                                        <p>Active Products</p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-bag"></i>
                                     </div>
-                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                    <a href="/Ecom_final_project/admin/viewAllProduct.jsp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                             <!-- ./col -->
@@ -75,7 +82,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <div class="inner">
                                         <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                                        <p>Bounce Rate</p>
+                                        <p>Un-Published Products</p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-stats-bars"></i>

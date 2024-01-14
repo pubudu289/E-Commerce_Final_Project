@@ -3,6 +3,7 @@ package org.apache.jsp.admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import modal.Brand;
 import modal.Districts;
 import DAO.ProductDAO.ProductDAO;
 import java.util.List;
@@ -62,6 +63,7 @@ public final class addProduct_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<!--\n");
       out.write("This is a starter template page. Use this page to start your new project from\n");
@@ -107,10 +109,11 @@ public final class addProduct_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body class=\"hold-transition sidebar-mini\">\n");
       out.write("        ");
 
-            //    if (request.getSession().getAttribute("UserData") == null) {
-            //       response.sendRedirect("/Ecom_final_project/adminLogin.jsp");
-            // }
+            if (request.getSession().getAttribute("UserData") == null) {
+                response.sendRedirect("/Ecom_final_project/adminLogin.jsp");
 
+            }
+        
       out.write(" \n");
       out.write("        <div class=\"wrapper\">\n");
       out.write("            ");
@@ -355,13 +358,13 @@ public final class addProduct_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <li class=\"nav-item\">\n");
       out.write("                            <a href=\"/Ecom_final_project/admin/viewAllProduct.jsp\" class=\"nav-link\">\n");
       out.write("                                <i class=\"far fa-circle nav-icon\"></i>\n");
-      out.write("                                <p>All Products</p>\n");
+      out.write("                                <p>Active Products</p>\n");
       out.write("                            </a>\n");
       out.write("                        </li>\n");
       out.write("                        <li class=\"nav-item\">\n");
       out.write("                            <a href=\"/Ecom_final_project/admin/customers.jsp\" class=\"nav-link\">\n");
       out.write("                                <i class=\"far fa-circle nav-icon\"></i>\n");
-      out.write("                                <p>Customers</p>\n");
+      out.write("                                <p>Un-Published</p>\n");
       out.write("                            </a>\n");
       out.write("                        </li>\n");
       out.write("                        <li class=\"nav-item\">\n");
@@ -525,6 +528,7 @@ public final class addProduct_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div><!-- /.container-fluid -->\n");
       out.write("                </div>\n");
       out.write("                <!-- /.content-header -->\n");
+      out.write("                \n");
       out.write("                <div class=\"container\">\n");
       out.write("                    <div class=\"row\">\n");
       out.write("                        <div class=\"col-sm-8\">\n");
@@ -587,13 +591,28 @@ public final class addProduct_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                                    <div class=\"form-group\">\n");
       out.write("                                        <label>Category</label>\n");
-      out.write("                                        <select class=\"form-control select2bs4\" style=\"width: 100%;\" id=\"category\"  onchange=\"optionClickedCategory()\" >\n");
+      out.write("                                        <select class=\"form-control select2bs4\" style=\"width: 100%;\" id=\"category\"  >\n");
       out.write("                                        </select>\n");
       out.write("                                    </div>\n");
       out.write("\n");
       out.write("                                    <div class=\"form-group\">\n");
       out.write("                                        <label>Brand</label>\n");
       out.write("                                        <select class=\"form-control select2bs4\" style=\"width: 100%;\" id=\"brand\">\n");
+      out.write("                                            ");
+
+                                                LoadCategoryDAO dAO = new LoadCategoryDAO();
+                                                List<Brand> brandList = dAO.searhBrandList();
+                                                for (Brand brand : brandList) {
+
+                                            
+      out.write("\n");
+      out.write("                                            <option selected=\"selected\">");
+      out.print(brand.getBrand());
+      out.write("</option>\n");
+      out.write("                                            ");
+
+                                                }
+                                            
       out.write("\n");
       out.write("                                        </select>\n");
       out.write("                                    </div>\n");
@@ -619,7 +638,7 @@ public final class addProduct_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            <label>Thumbnail Image</label>\n");
       out.write("                                            <div class=\"card\">\n");
       out.write("                                                <div class=\"card-body\">\n");
-      out.write("                                                    <input type=\"file\" id=\"filethumb\" accept=\"image/*\" hidden>\n");
+      out.write("                                                    <input type=\"file\" id=\"filethumb\" name=\"filethumb\" accept=\"image/*\" hidden>\n");
       out.write("                                                    <div class=\"img-area\" id=\"image-areathumb\" data-img=\"\" >\n");
       out.write("                                                        <i class='bx bxs-cloud-upload icon'></i>\n");
       out.write("\n");
@@ -712,12 +731,8 @@ public final class addProduct_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </div>\n");
       out.write("                                <div class=\"card-body\">\n");
       out.write("                                    <textarea id=\"summernote\">\n");
-      out.write("                                         \n");
-      out.write("\n");
       out.write("                                    </textarea>\n");
-      out.write("\n");
       out.write("                                </div>\n");
-      out.write("\n");
       out.write("                            </div>\n");
       out.write("\n");
       out.write("\n");
@@ -735,10 +750,17 @@ public final class addProduct_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        <input type=\"number\" class=\"form-control\" id=\"txtpurchaseprice\">\n");
       out.write("                                    </div>\n");
       out.write("                                    <div class=\"form-group\">\n");
-      out.write("                                        <label class=\"mb-0 fw-normal\"  for=\"txtdiscount\">Discount</label>\n");
-      out.write("                                        <input type=\"number\" class=\"form-control\" id=\"txtdiscount\">\n");
+      out.write("                                        <label class=\"mb-0 fw-normal\"  for=\"txtdiscount\">Discount %</label>\n");
+      out.write("                                        <input type=\"number\" class=\"form-control\" id=\"txtdiscount\" value=\"0\">\n");
+      out.write("                                        <div class=\"row\">\n");
+      out.write("                                            <div class=\"col-sm-5\">\n");
+      out.write("                                                <label class=\"form-label\" style=\"font-size: 18px; color: green;\">The selling price by discount Rs:</label>\n");
+      out.write("                                            </div>\n");
+      out.write("                                            <div class=\"col-sm-7\">\n");
+      out.write("                                                <label class=\"form-label\" style=\"font-size: 18px; color: tomato;\" id=\"discountPrice\">0.00</label>\n");
+      out.write("                                            </div>\n");
+      out.write("                                        </div>\n");
       out.write("                                    </div>\n");
-      out.write("\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("\n");
@@ -796,7 +818,7 @@ public final class addProduct_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                        <p  style=\"font-size: 15px; font: normal;\">Flat Rate</p>\n");
       out.write("                                                    </div>\n");
       out.write("                                                    <div class=\"col-sm-8\">\n");
-      out.write("                                                        <input type=\"number\" class=\"form-control\" value=\"0\" placeholder=\"Rate (Rs)\">\n");
+      out.write("                                                        <input type=\"number\" class=\"form-control\" value=\"0\" placeholder=\"Rate (Rs)\" id=\"txtflatrate\">\n");
       out.write("                                                    </div> \n");
       out.write("                                                </div> \n");
       out.write("                                            </div>\n");

@@ -9,11 +9,7 @@ import DAO.AdminDAO.AdminLoginDAO;
 import DAO.ProductDAO.LoadCategoryDAO;
 import DAO.ProductDAO.ProductDAO;
 import DTO.AdminDTO.AdminLoginDTO;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -66,7 +62,7 @@ public class ProductUploadController extends HttpServlet {
                 String brand = request.getParameter("brand");
                 String unit = request.getParameter("unit");
                 String qty = request.getParameter("qty");
-                String filethumb = request.getParameter("filethumb");
+                String filethumb = request.getParameter("file");
                 String imageone = request.getParameter("imageone");
                 String imagetwo = request.getParameter("imagetwo");
                 String imagethree = request.getParameter("imagethree");
@@ -80,100 +76,106 @@ public class ProductUploadController extends HttpServlet {
                 String visibility = request.getParameter("visibility");
                 String shipping_days = request.getParameter("shipping_days");
                 String txtflatrate = request.getParameter("txtflatrate");
+                 String shortdes = request.getParameter("shortdes");
+         
                 
-//                LoadCategoryDAO loadCategory = new LoadCategoryDAO();
-//                MainCategory mcatid = loadCategory.searchMainListByName(mainCategory);
-//                int mainc = mcatid.getMId();
-//                
-//                SubCategory subCategory = loadCategory.searhIdBySubName(subcategory);
-//                int subc = subCategory.getSId();
-//                
-//                Category category1 = loadCategory.searchCategoryByCategoryName(category);
-//                int catid = category1.getId();
-//                
-//                Brand brand1 = loadCategory.searchBrandByBrandName(brand);
-//                int bid = brand1.getId();
-//                
-//                ProductDAO pdao = new ProductDAO();
-//                List<Product> pList = pdao.searchProductList();
-//                int sortkey = pList.size() + 1;
-//                
-//                int saveAndpublish = 1;
-//                int status = 1;
-
-//                System.out.println(productId + " " + productName + " " + unit + " " + qty
-//                        + " " + unitprice + " " + purchasePrice + " " + discount
-//                        + " " + thumbimage + " " + mainc
-//                        + " " + subc + " " + catid + " " + bid + " " + sortkey
-//                        + " " + saveAndpublish + " " + description
-//                        + " " + shipping_days + " " + quantity_warning + " " + status);
-//                
-//                AdminLoginDTO dto = (AdminLoginDTO) request.getSession().getAttribute("UserData");
-//                int adminid = dto.getId();
-//                
-//                AdminLoginDAO adminDAO = new AdminLoginDAO();
-//                Admin admin = adminDAO.searchByID(adminid);
+                LoadCategoryDAO loadCategory = new LoadCategoryDAO();
+                MainCategory mcatid = loadCategory.searchMainListByName(mainCategory);
+                int mainc = mcatid.getMId();
                 
-//                Product pr = new Product();
-//                pr.setProductId(productId);
-//                pr.setName(productName);
-//                pr.setUnit(unit);
-//                pr.setQty(Integer.parseInt(qty));
-//                
-//                String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-//                pr.setAddtoby(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(date));;
-//                
-//                pr.setAdmin(admin);
-//                pr.setUnitPrice(Double.parseDouble(unitprice));
-//                pr.setPurchasePrice(Double.parseDouble(purchasePrice));
-//                pr.setDiscount(Integer.parseInt(discount));
-//                
-//                double purprice = Double.parseDouble(purchasePrice);
-//                double dis = Double.parseDouble(discount);
-//                double discountprice = purprice - (purprice * dis) / 100;
-//                DecimalFormat df = new DecimalFormat("#.##");
-//                String dd = df.format(discountprice);
-//                
-//                pr.setDiscountPrice(Double.parseDouble(dd));
+                SubCategory subCategory = loadCategory.searhIdBySubName(subcategory);
+                int subc = subCategory.getSId();
+                
+                Category category1 = loadCategory.searchCategoryByCategoryName(category);
+                int catid = category1.getId();
+                
+                Brand brand1 = loadCategory.searchBrandByBrandName(brand);
+                int bid = brand1.getId();
+                
+                ProductDAO pdao = new ProductDAO();
+                List<Product> pList = pdao.searchProductList();
+                int sortkey = pList.size() + 1;
+                
+                AdminLoginDTO dto = (AdminLoginDTO) request.getSession().getAttribute("UserData");
+                int adminid = dto.getId();
+               
+                AdminLoginDAO adminDAO = new AdminLoginDAO();
+                Admin admin = adminDAO.searchByID(adminid);
+                
+                Product pr = new Product();
+                pr.setProductId(productId);
+                pr.setName(productName);
+                pr.setUnit(unit);
+                pr.setQty(Integer.parseInt(qty));
+                
+                String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+                pr.setAddtoby(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(date));;
+                
+                pr.setAdmin(admin);
+                pr.setUnitPrice(Double.parseDouble(unitprice));
+                pr.setPurchasePrice(Double.parseDouble(purchasePrice));
+                pr.setDiscount(Integer.parseInt(discount));
+                
+                double purprice = Double.parseDouble(purchasePrice);
+                double dis = Double.parseDouble(discount);
+                double discountprice = purprice - (purprice * dis) / 100;
+                DecimalFormat df = new DecimalFormat("#.##");
+                String dd = df.format(discountprice);
+                
+                pr.setDiscountPrice(Double.parseDouble(dd));
 
 //           Enter the uploading file path
-                String uploadPath = "C:\\Users\\Pubudu Kasun\\Desktop\\New folderOne";
-                File file = new File(uploadPath);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                Part part = request.getPart("file");
-                String original = getFileName(part);
-
-                //Extract the extention from the file name
-                String extention = ".jpg";
-                int index = original.lastIndexOf('.');
-                if (index > 0) {
-                    extention = original.substring(index + 1);
-                }
-                String fileName = "ITEM" + productId + "." + extention;
-                String filePath = uploadPath + File.separator + fileName;
+//                String uploadPath = "C:\\Users\\Pubudu Kasun\\Desktop\\New folderOne";
+//                File file = new File(uploadPath);
+//                if (!file.exists()) {
+//                    file.mkdirs();
+//                }
+//                Part part = request.getPart("file");
+//                String original = getFileName(part);
+//
+//                //Extract the extention from the file name
+//                String extention = ".jpg";
+//                int index = original.lastIndexOf('.');
+//                if (index > 0) {
+//                    extention = original.substring(index + 1);
+//                }
+//                String fileName = "ITEM" + productId + "." + extention;
+//                String filePath = uploadPath + File.separator + fileName;
+//                
+//                try (OutputStream out = new FileOutputStream(new File(filePath));
+//                        InputStream in = part.getInputStream()) {
+//                    int read;
+//                    final byte[] bytes = new byte[1024];
+//                    while ((read = in.read(bytes)) != -1) {
+//                        out.write(bytes, 0, read);
+//                    }
+//                    System.out.println(filePath);
+////                    pr.setThumbImg(filePath);
+//                    
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
                 
-                try (OutputStream out = new FileOutputStream(new File(filePath));
-                        InputStream in = part.getInputStream()) {
-                    int read;
-                    final byte[] bytes = new byte[1024];
-                    while ((read = in.read(bytes)) != -1) {
-                        out.write(bytes, 0, read);
-                    }
-                    System.out.println(filePath);
-//                    pr.setThumbImg(filePath);
-                    
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                
-//                pdao.saveProduct(pr);
+                pr.setMainCategory(mcatid);
+                pr.setSubCategory(subCategory);
+                pr.setCategory(category1);
+                pr.setBrand(brand1);
+                pr.setSortId(sortkey);
+                pr.setPublishUnpublishId(Boolean.TRUE);
+                pr.setDescription(description);
+                pr.setShippingDays(shipping_days);
+                pr.setShippingStatus(Integer.parseInt(shipping_status));
+                pr.setLowStockWarning(Integer.parseInt(quantity_warning));
+                pr.setStatus(Boolean.TRUE);
+                pr.setShortdes(shortdes);
 
-//                pdao.saveProduct(productId, productName,
-//                        unit, qty, unitprice, purchasePrice, discount, thumbimage,
-//                        mainc, subc, catid, bid, sortkey, saveAndpublish, description,
-//                        shipping_days, quantity_warning, status, admin);
+               String p =  pdao.saveProduct(pr);
+               
+                if (p!="") {
+                     outx.write("success");
+                }
+
+
             } catch (java.lang.NullPointerException | org.hibernate.NonUniqueResultException ex) {
                 
             } catch (Exception e) {
@@ -208,15 +210,15 @@ public class ProductUploadController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private String getFileName(Part part) {
-        for (String cd : part.getHeader("content-disposition").split(";")) {
-            if (cd.trim().startsWith("filename")) {
-                String fileName = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
-                return fileName.substring(fileName.lastIndexOf('/') + 1).substring(fileName.lastIndexOf('\\') + 1); // MSIE fix.
-            }
-        }
-        return null;
-        
-    }
+//    private String getFileName(Part part) {
+//        for (String cd : part.getHeader("content-disposition").split(";")) {
+//            if (cd.trim().startsWith("filename")) {
+//                String fileName = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
+//                return fileName.substring(fileName.lastIndexOf('/') + 1).substring(fileName.lastIndexOf('\\') + 1); // MSIE fix.
+//            }
+//        }
+//        return null;
+//        
+//    }
     
 }

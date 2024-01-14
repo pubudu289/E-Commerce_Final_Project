@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 26, 2023 2:34:59 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jan 13, 2024 10:48:21 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modal.Product" table="product" catalog="ecom_final_db" optimistic-lock="version">
         <id name="productId" type="string">
@@ -56,11 +56,17 @@
         <property name="publishUnpublishId" type="boolean">
             <column name="publish_unpublish_id" not-null="true" />
         </property>
+        <property name="shortdes" type="string">
+            <column name="shortdes" length="100" not-null="true" />
+        </property>
         <property name="description" type="string">
             <column name="description" length="500" not-null="true" />
         </property>
         <property name="shippingDays" type="string">
             <column name="shipping_days" length="45" not-null="true" />
+        </property>
+        <property name="shippingStatus" type="int">
+            <column name="shipping_status" not-null="true" />
         </property>
         <property name="lowStockWarning" type="int">
             <column name="low_stock_warning" not-null="true" />

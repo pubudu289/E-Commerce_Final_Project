@@ -83,7 +83,7 @@
                     <p class="mb-1">
                         <a href="/Ecom_final_project/admin/adminForgotPassword.jsp">I forgot my password</a>
                     </p>
-               
+
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -99,7 +99,7 @@
         <script src="admin/dist/js/adminlte.min.js"></script>
 
 
-
+        <script src="admin/externaljs/sweetalert.min.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -115,13 +115,23 @@
                             url: "/Ecom_final_project/AdminLogin",
                             data: {"email": email, "password": password},
                             success: function (data) {
+
                                 if (data === "00") {
-                                    alert("login success")
-                                    window.location = "/Ecom_final_project/admin/index.jsp";
+                                    swal("Good job!", "login success!", "success")
+                                            .then((value) => {
+                                                if (value) {
+                                                    window.location = "/Ecom_final_project/admin/index.jsp";
+                                                }
+                                            });
                                 } else {
-                                    alert("Try again...")
-                                    window.location = "/Ecom_final_project/adminLogin.jsp";
+                                    swal("Please try again!", "Wrong Email or Password!", "error")
+                                            .then((value) => {
+                                                if (value) {
+                                                    window.location = "/Ecom_final_project/adminLogin.jsp";
+                                                }
+                                            });
                                 }
+
                             },
                             error: function () {
 

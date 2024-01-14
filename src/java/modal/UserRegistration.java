@@ -1,5 +1,5 @@
 package modal;
-// Generated Dec 26, 2023 2:34:59 AM by Hibernate Tools 4.3.1
+// Generated Jan 13, 2024 10:48:19 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;

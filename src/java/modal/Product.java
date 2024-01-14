@@ -1,5 +1,5 @@
 package modal;
-// Generated Dec 26, 2023 2:34:59 AM by Hibernate Tools 4.3.1
+// Generated Jan 13, 2024 10:48:19 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -43,8 +43,10 @@ public class Product  implements java.io.Serializable {
      private String thumbImg;
      private int sortId;
      private boolean publishUnpublishId;
+     private String shortdes;
      private String description;
      private String shippingDays;
+     private int shippingStatus;
      private int lowStockWarning;
      private boolean status;
      private Set<ProductImage> productImages = new HashSet<ProductImage>(0);
@@ -56,7 +58,7 @@ public class Product  implements java.io.Serializable {
     }
 
 	
-    public Product(String productId, Admin admin, Brand brand, Category category, MainCategory mainCategory, SubCategory subCategory, String name, String unit, int qty, Date addtoby, double unitPrice, double purchasePrice, int discount, double discountPrice, int sortId, boolean publishUnpublishId, String description, String shippingDays, int lowStockWarning, boolean status) {
+    public Product(String productId, Admin admin, Brand brand, Category category, MainCategory mainCategory, SubCategory subCategory, String name, String unit, int qty, Date addtoby, double unitPrice, double purchasePrice, int discount, double discountPrice, int sortId, boolean publishUnpublishId, String shortdes, String description, String shippingDays, int shippingStatus, int lowStockWarning, boolean status) {
         this.productId = productId;
         this.admin = admin;
         this.brand = brand;
@@ -73,12 +75,14 @@ public class Product  implements java.io.Serializable {
         this.discountPrice = discountPrice;
         this.sortId = sortId;
         this.publishUnpublishId = publishUnpublishId;
+        this.shortdes = shortdes;
         this.description = description;
         this.shippingDays = shippingDays;
+        this.shippingStatus = shippingStatus;
         this.lowStockWarning = lowStockWarning;
         this.status = status;
     }
-    public Product(String productId, Admin admin, Brand brand, Category category, MainCategory mainCategory, SubCategory subCategory, String name, String unit, int qty, Date addtoby, double unitPrice, double purchasePrice, int discount, double discountPrice, String thumbImg, int sortId, boolean publishUnpublishId, String description, String shippingDays, int lowStockWarning, boolean status, Set<ProductImage> productImages, Set<TableFlatRate> tableFlatRates, Set<StockVisibility> stockVisibilities, Set<TableShippingStatus> tableShippingStatuses) {
+    public Product(String productId, Admin admin, Brand brand, Category category, MainCategory mainCategory, SubCategory subCategory, String name, String unit, int qty, Date addtoby, double unitPrice, double purchasePrice, int discount, double discountPrice, String thumbImg, int sortId, boolean publishUnpublishId, String shortdes, String description, String shippingDays, int shippingStatus, int lowStockWarning, boolean status, Set<ProductImage> productImages, Set<TableFlatRate> tableFlatRates, Set<StockVisibility> stockVisibilities, Set<TableShippingStatus> tableShippingStatuses) {
        this.productId = productId;
        this.admin = admin;
        this.brand = brand;
@@ -96,8 +100,10 @@ public class Product  implements java.io.Serializable {
        this.thumbImg = thumbImg;
        this.sortId = sortId;
        this.publishUnpublishId = publishUnpublishId;
+       this.shortdes = shortdes;
        this.description = description;
        this.shippingDays = shippingDays;
+       this.shippingStatus = shippingStatus;
        this.lowStockWarning = lowStockWarning;
        this.status = status;
        this.productImages = productImages;
@@ -279,6 +285,16 @@ public class Product  implements java.io.Serializable {
     }
 
     
+    @Column(name="shortdes", nullable=false, length=100)
+    public String getShortdes() {
+        return this.shortdes;
+    }
+    
+    public void setShortdes(String shortdes) {
+        this.shortdes = shortdes;
+    }
+
+    
     @Column(name="description", nullable=false, length=500)
     public String getDescription() {
         return this.description;
@@ -296,6 +312,16 @@ public class Product  implements java.io.Serializable {
     
     public void setShippingDays(String shippingDays) {
         this.shippingDays = shippingDays;
+    }
+
+    
+    @Column(name="shipping_status", nullable=false)
+    public int getShippingStatus() {
+        return this.shippingStatus;
+    }
+    
+    public void setShippingStatus(int shippingStatus) {
+        this.shippingStatus = shippingStatus;
     }
 
     

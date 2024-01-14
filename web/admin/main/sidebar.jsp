@@ -91,13 +91,13 @@
                         <li class="nav-item">
                             <a href="/Ecom_final_project/admin/viewAllProduct.jsp" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>All Products</p>
+                                <p>Active Products</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/Ecom_final_project/admin/customers.jsp" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Customers</p>
+                                <p>Un-Published</p>
                             </a>
                         </li>
                         <li class="nav-item">

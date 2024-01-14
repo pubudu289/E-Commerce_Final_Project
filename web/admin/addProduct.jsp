@@ -84,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div><!-- /.container-fluid -->
                 </div>
                 <!-- /.content-header -->
-                
+
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8">
@@ -178,7 +178,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <label>Thumbnail Image</label>
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <input type="file" id="filethumb"  name="file" enctype="multipart/form-data"  accept="image/*" hidden>
+                                                    <input type="file" id="filethumb" name="filethumb" accept="image/*" hidden>
                                                     <div class="img-area" id="image-areathumb" data-img="" >
                                                         <i class='bx bxs-cloud-upload icon'></i>
 
@@ -263,7 +263,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <!-- /.card-body -->
                             </div>
-
+                            <div class="card">
+                                <div class="card-header">
+                                    Product Short Description
+                                </div>
+                                <div class="card-body">
+                                     <div class="form-group">
+                                         <input type="text" class="form-control" id="shortdes" placeholder="Short Description here">
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="card">
                                 <div class="card-header">
@@ -271,12 +280,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <div class="card-body">
                                     <textarea id="summernote">
-                                         
-
                                     </textarea>
-
                                 </div>
-
                             </div>
 
 
@@ -463,10 +468,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <button type="button" class="btn btn-block bg-gradient-info btn-lg" id="btnSaveAndPublish">Save & Publish</button>
                                 </div>
                                 <div class="col-sm-4 mt-1">
-                                    <button type="button" class="btn btn-block bg-gradient-primary btn-lg">Save & Unpubish</button>
+                                    <button type="button" class="btn btn-block bg-gradient-primary btn-lg" id="btnSaveAndUnpublish">Save & Unpubish</button>
                                 </div>
                                 <div class="col-sm-4 mt-1">
-                                    <button type="button" class="btn btn-block bg-gradient-warning btn-lg">Cancle</button>
+                                    <button type="button" class="btn btn-block bg-gradient-warning btn-lg" id="btncancle">Cancle</button>
                                 </div>
                             </div>
 
@@ -531,6 +536,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <script src="../admin/externaljs/product_upload.js"></script>
         <script src="../admin/externaljs/product_validation.js"></script>
+        <script src="../admin/externaljs/sweetalert.min.js"></script>
 
     </body>
 </html>
